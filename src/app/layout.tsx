@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, Nothing_You_Could_Do } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import "./globals.css";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
+const handwriting = Nothing_You_Could_Do({
+  variable: "--font-handwriting",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -31,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${handwriting.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pt-[72px]">
         <Navigation />
