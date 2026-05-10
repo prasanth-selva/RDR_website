@@ -83,7 +83,7 @@ export default function ScrollytellingCanvas() {
     // The prompt asked for "contain fit" - meaning we see the whole product.
     const hRatio = canvas.width / image.width;
     const vRatio = canvas.height / image.height;
-    const ratio = Math.min(hRatio, vRatio); // Use min for contain, max for cover
+    const ratio = Math.max(hRatio, vRatio); // Use max for cover
 
     const centerShift_x = (canvas.width - image.width * ratio) / 2;
     const centerShift_y = (canvas.height - image.height * ratio) / 2;
