@@ -188,12 +188,15 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
       {/* 0% Scroll */}
       <motion.div
         style={{ opacity: heroOpacity, y: heroY }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center"
+        className="absolute inset-0 flex flex-col items-center justify-center text-center font-serif"
       >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white/90">
+        <p className="text-[#cda873] tracking-[0.4em] text-sm uppercase mb-6 font-sans font-bold">
+          Cyberbots Presents
+        </p>
+        <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
           LUMINA
         </h1>
-        <p className="mt-4 text-lg tracking-widest text-white/60 max-w-xl uppercase">
+        <p className="mt-6 text-xl tracking-widest text-white/60 max-w-xl uppercase font-sans">
           The future of holographic displays.
         </p>
       </motion.div>
