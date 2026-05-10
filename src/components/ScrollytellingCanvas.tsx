@@ -193,11 +193,11 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         <p className="text-[#cda873] tracking-[0.4em] text-sm uppercase mb-6 font-sans font-bold">
           Cyberbots Presents
         </p>
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-          LUMINA
+        <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] whitespace-nowrap">
+          RED DEAD REDEMPTION II
         </h1>
         <p className="mt-6 text-xl tracking-widest text-white/60 max-w-xl uppercase font-sans">
-          The future of holographic displays.
+          Outlaws for life.
         </p>
       </motion.div>
 
@@ -207,11 +207,10 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         className="absolute inset-y-0 left-0 flex flex-col justify-center px-6 md:px-12 w-full md:w-1/2"
       >
         <h2 className="text-4xl font-bold tracking-tight text-white/90">
-          Precision Engineering
+          The End of an Era
         </h2>
         <p className="mt-4 text-lg text-white/60">
-          Every component is meticulously designed to create an immersive visual
-          experience. Watch it separate into its core elements.
+          America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed.
         </p>
       </motion.div>
 
@@ -221,11 +220,10 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         className="absolute inset-y-0 right-0 flex flex-col justify-center text-right px-6 md:px-12 w-full md:w-1/2"
       >
         <h2 className="text-4xl font-bold tracking-tight text-white/90">
-          Inner Complexity
+          A Price on Your Head
         </h2>
         <p className="mt-4 text-lg text-white/60 ml-auto">
-          Beneath the sleek exterior lies a complex array of optics and sensors, 
-          working in perfect harmony to project light into thin air.
+          After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels...
         </p>
       </motion.div>
 
@@ -235,13 +233,13 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         className="absolute inset-0 flex flex-col items-center justify-center text-center"
       >
         <h2 className="text-5xl font-bold tracking-tight text-white/90">
-          Pre-order Lumina Today
+          Play The Epic Saga
         </h2>
         <p className="mt-4 text-lg text-white/60 mb-8">
-          Reassembling the future, available this fall.
+          The critically acclaimed masterpiece is available now.
         </p>
-        <button className="px-8 py-4 bg-white text-black font-semibold tracking-wider uppercase hover:bg-white/90 transition-colors rounded-full">
-          Reserve Now
+        <button className="px-8 py-4 bg-[#8b0000] text-white font-sans font-bold tracking-wider uppercase hover:bg-[#a50000] transition-colors rounded-sm">
+          Play Now
         </button>
       </motion.div>
     </div>
