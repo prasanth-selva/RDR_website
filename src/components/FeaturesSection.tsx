@@ -1,6 +1,7 @@
 "use client";
 
 import { useGameSounds } from "@/hooks/useGameSounds";
+import { motion } from "framer-motion";
 
 export default function FeaturesSection() {
   const { playHover } = useGameSounds();
@@ -34,22 +35,29 @@ export default function FeaturesSection() {
           <div className="w-24 h-1 bg-[#cda873] mx-auto mt-8 opacity-60"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 perspective-[1000px]">
           {features.map((feature, i) => (
-            <div 
+            <motion.div 
               key={i}
+              initial={{ rotateX: 20, y: 50, opacity: 0 }}
+              whileInView={{ rotateX: 0, y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: i * 0.2, type: "spring" }}
               onMouseEnter={playHover}
-              className="group relative bg-[#0a0a0a] border border-white/5 p-8 transition-all duration-500 hover:border-[#cda873]/30 hover:bg-[#111]"
+              className="group relative bg-[#0a0a0a] border border-white/5 p-8 transition-all duration-500 hover:border-[#cda873]/30 hover:bg-[#111] hover:scale-105 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(139,0,0,0.15)]"
+              style={{ transformStyle: "preserve-3d" }}
             >
               <div 
                 className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500"
                 style={{ backgroundImage: `url(${feature.image})` }}
               ></div>
-              <h4 className="text-2xl text-white mb-4 relative z-10 group-hover:text-[#cda873] transition-colors">{feature.title}</h4>
-              <p className="text-white/60 font-sans leading-relaxed relative z-10">{feature.description}</p>
+              <div style={{ transform: "translateZ(30px)" }}>
+                <h4 className="text-2xl text-white mb-4 relative z-10 group-hover:text-[#cda873] transition-colors">{feature.title}</h4>
+                <p className="text-white/60 font-sans leading-relaxed relative z-10">{feature.description}</p>
+              </div>
               
               <div className="absolute bottom-0 left-0 w-0 h-1 bg-[#8b0000] transition-all duration-500 group-hover:w-full"></div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
