@@ -13,6 +13,8 @@ export default function Navigation() {
     { name: "Home", path: "/" },
     { name: "The World", path: "/world" },
     { name: "Bounty Board", path: "/bounty-board" },
+    { name: "Arsenal", path: "/arsenal" },
+    { name: "Journal", path: "/journal" },
   ];
 
   return (
