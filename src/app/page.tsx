@@ -1,14 +1,30 @@
 import ScrollytellingCanvas from "@/components/ScrollytellingCanvas";
+import CharacterSelection from "@/components/CharacterSelection";
+import FeaturesSection from "@/components/FeaturesSection";
 
 export default function Home() {
   return (
     <main className="bg-[#050505] min-h-screen text-white">
       <ScrollytellingCanvas />
-      {/* We can add standard footer or additional non-scroll-linked content below here if needed */}
-      <footer className="py-24 text-center border-t border-white/10 bg-[#050505]">
-        <p className="text-white/60 tracking-wider text-sm uppercase">
-          &copy; {new Date().getFullYear()} Lumina. All rights reserved.
-        </p>
+      
+      {/* Game Interactive Selection */}
+      <CharacterSelection />
+      
+      {/* Additional Game Features */}
+      <FeaturesSection />
+
+      {/* Cinematic Footer */}
+      <footer className="py-24 text-center border-t border-white/5 bg-[#050505] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none"></div>
+        <div className="relative z-10">
+          <h2 className="text-3xl font-serif text-white/40 mb-6 tracking-widest">LUMINA</h2>
+          <p className="text-[#cda873]/60 tracking-[0.2em] text-xs font-sans uppercase mb-8">
+            Outlaws to the end.
+          </p>
+          <p className="text-white/20 tracking-wider text-xs font-sans uppercase">
+            &copy; {new Date().getFullYear()} Lumina Scrollytelling Experience. All rights reserved.
+          </p>
+        </div>
       </footer>
     </main>
   );
