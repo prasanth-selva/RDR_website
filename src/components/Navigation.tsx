@@ -11,6 +11,7 @@ export default function Navigation() {
 
   const navItems = [
     { name: "Home", path: "/" },
+    { name: "Story", path: "/story" },
     { name: "The World", path: "/world" },
     { name: "Bounty Board", path: "/bounty-board" },
     { name: "Arsenal", path: "/arsenal" },
@@ -20,8 +21,8 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 px-6 py-4 font-serif">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" onClick={playSelect} className="text-2xl font-bold tracking-widest text-[#cda873]">
-          LUMINA
+        <Link href="/" onClick={playSelect} className="text-xl md:text-2xl font-bold tracking-widest text-[#cda873]">
+          RED DEAD REDEMPTION II
         </Link>
         
         <ul className="flex space-x-8">
