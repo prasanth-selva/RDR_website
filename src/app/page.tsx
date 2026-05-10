@@ -22,7 +22,7 @@ export default function Home() {
             Developed by Cyberbots | Founded by Prasanth
           </p>
           <p className="text-white/20 tracking-wider text-xs font-sans uppercase">
-            &copy; {new Date().getFullYear()} Lumina Scrollytelling Experience. All rights reserved.
+            &copy; {new Date().getFullYear()} Red Dead Redemption Experience. All rights reserved.
           </p>
         </div>
       </footer>

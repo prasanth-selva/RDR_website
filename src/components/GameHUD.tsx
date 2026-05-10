@@ -38,7 +38,7 @@ export default function GameHUD() {
 
       {/* Top Right "Mission" Objective */}
       <div className="absolute top-24 right-6 text-right max-w-[200px]">
-        <h4 className="text-[#cda873] font-bold text-lg mb-1 tracking-wider drop-shadow-md">Explore Lumina</h4>
+        <h4 className="text-[#cda873] font-bold text-lg mb-1 tracking-wider drop-shadow-md">Explore The Frontier</h4>
         <p className="text-white/60 text-xs font-sans uppercase tracking-widest bg-black/40 p-2 border border-white/5 rounded backdrop-blur-md">
           Discover the Arsenal and Journal.
         </p>

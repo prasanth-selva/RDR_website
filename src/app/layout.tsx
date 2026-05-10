@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LUMINA - Holographic Display",
+  title: "RED DEAD REDEMPTION II",
   description: "Reassembling the future. The ultimate holographic scrollytelling experience.",
 };
 
