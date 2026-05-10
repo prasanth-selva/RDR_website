@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Nothing_You_Could_Do } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import GameHUD from "@/components/GameHUD";
+import SiteBootSequence from "@/components/SiteBootSequence";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -41,9 +42,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${handwriting.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pt-[72px]">
-        <GameHUD />
-        <Navigation />
-        {children}
+        <SiteBootSequence>
+          <GameHUD />
+          <Navigation />
+          {children}
+        </SiteBootSequence>
       </body>
     </html>
   );
