@@ -11,7 +11,7 @@ const TECH_DOMAINS = [
     name: "AI & Machine Learning",
     role: "Python · OpenCV · YOLO · Streamlit",
     description:
-      "Building intelligent systems that see, learn, and act. From real-time threat detection to habit analysis — I turn raw data into smart products.",
+      "Computer vision and ML tools for detection, analysis, and automation.",
     stats: { proficiency: 90, projects: 80, experience: 78 },
   },
   {
@@ -19,7 +19,7 @@ const TECH_DOMAINS = [
     name: "Cybersecurity",
     role: "SOC · SIEM · Threat Hunting",
     description:
-      "Defensive security from SOC workflows to anomaly detection and incident triage. Building tools that surface threats early and reduce noise.",
+      "SOC workflows, anomaly detection, and incident triage tooling.",
     stats: { proficiency: 88, projects: 82, experience: 76 },
   },
   {
@@ -27,7 +27,7 @@ const TECH_DOMAINS = [
     name: "Mobile Development",
     role: "Flutter · Dart · Firebase · Supabase",
     description:
-      "Cross-platform apps that feel native. From university research lab tools to habit tracking platforms — built for real users, deployed in production.",
+      "Flutter apps for labs, habit tracking, and production use.",
     stats: { proficiency: 87, projects: 95, experience: 72 },
   },
   {
@@ -35,7 +35,7 @@ const TECH_DOMAINS = [
     name: "Web Development",
     role: "Next.js · React · TypeScript · Framer Motion",
     description:
-      "Premium, cinematic web experiences powered by modern frameworks. This very portfolio is an example of what I build.",
+      "Fast, clean web apps and portfolios built with Next.js.",
     stats: { proficiency: 88, projects: 85, experience: 75 },
   },
 ];
@@ -66,15 +66,13 @@ export default function TechDomainSelector() {
   };
 
   const statColors: Record<string, string> = {
-    proficiency: "from-[#cda873] to-[#f4e2b8]",
-    projects: "from-[#8b0000] to-[#ff4444]",
-    experience: "from-white/40 to-white/80",
+    proficiency: "bg-[#cda873]",
+    projects: "bg-[#cda873]",
+    experience: "bg-[#cda873]",
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-[#0a0a0a] border-t border-[#2a1a00]/60 py-24 px-6 md:px-12 flex flex-col justify-center font-serif text-white">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] pointer-events-none z-0" />
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none z-0 mix-blend-overlay" />
+    <section className="relative w-full min-h-screen bg-[#0b0b0b] border-t border-white/10 py-24 px-6 md:px-12 flex flex-col justify-center font-serif text-white">
 
       <div className="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 
@@ -93,10 +91,10 @@ export default function TechDomainSelector() {
                 onMouseEnter={() => handleHover(domain.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 onClick={() => handleSelect(domain)}
-                className={`group relative w-full text-left p-5 transition-all duration-300 border backdrop-blur-sm ${
+                className={`group relative w-full text-left p-5 transition-all duration-200 border ${
                   isSelected
-                    ? "bg-[#1a1000]/80 border-[#cda873]/60 shadow-[0_0_20px_rgba(205,168,115,0.2)] scale-[1.02]"
-                    : "bg-[#111] border-white/10 hover:border-[#cda873]/30 hover:bg-[#151209]"
+                    ? "bg-[#121212] border-[#cda873]/60"
+                    : "bg-[#101010] border-white/10 hover:border-[#cda873]/30"
                 }`}
               >
                 <div className="flex justify-between items-center">
@@ -108,7 +106,7 @@ export default function TechDomainSelector() {
                       {domain.role}
                     </p>
                   </div>
-                  <div className={`w-3 h-3 rounded-full transition-all flex-shrink-0 ml-4 ${isSelected ? "bg-[#cda873] shadow-[0_0_10px_#cda873]" : "bg-transparent border border-white/20"}`} />
+                  <div className={`w-3 h-3 rounded-full transition-all flex-shrink-0 ml-4 ${isSelected ? "bg-[#cda873]" : "bg-transparent border border-white/20"}`} />
                 </div>
               </button>
             );
@@ -122,14 +120,8 @@ export default function TechDomainSelector() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="bg-[#0d0d0d] border border-white/5 p-8 relative overflow-hidden"
+            className="bg-[#0d0d0d] border border-white/10 p-8 relative"
           >
-            {/* Corner decorations */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#cda873]/40" />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#cda873]/40" />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#cda873]/40" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#cda873]/40" />
-
             <h2 className="text-4xl font-bold text-white mb-2">{selected.name}</h2>
             <p className="text-sm text-[#cda873] font-sans tracking-widest mb-6 border-b border-white/10 pb-6">
               {selected.role}
@@ -148,7 +140,7 @@ export default function TechDomainSelector() {
                       initial={{ width: 0 }}
                       animate={{ width: `${val}%` }}
                       transition={{ duration: 0.8, delay: i * 0.1 }}
-                      className={`h-full bg-gradient-to-r ${statColors[stat]}`}
+                      className={`h-full ${statColors[stat]}`}
                     />
                   </div>
                 </div>
@@ -160,7 +152,7 @@ export default function TechDomainSelector() {
                 href="/world"
                 onMouseEnter={playHover}
                 onClick={() => { playSelect(); playPickup(); }}
-                className="px-8 py-3 bg-[#cda873] text-black font-sans font-bold tracking-[0.15em] uppercase transition-all hover:bg-[#e5cc98] hover:shadow-[0_0_15px_rgba(205,168,115,0.3)] hover:-translate-y-0.5 inline-block"
+                className="px-8 py-3 bg-[#cda873] text-black font-sans font-bold tracking-[0.15em] uppercase transition-all hover:opacity-90 inline-block"
               >
                 View Projects →
               </Link>
