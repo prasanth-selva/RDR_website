@@ -23,14 +23,6 @@ const TECH_DOMAINS = [
     stats: { proficiency: 88, projects: 82, experience: 76 },
   },
   {
-    id: "mobile",
-    name: "Mobile Development",
-    role: "Flutter · Dart · Firebase · Supabase",
-    description:
-      "Flutter apps for labs, habit tracking, and production use.",
-    stats: { proficiency: 87, projects: 95, experience: 72 },
-  },
-  {
     id: "web",
     name: "Web Development",
     role: "Next.js · React · TypeScript · Framer Motion",
