@@ -12,7 +12,6 @@ const CERTIFICATIONS = [
     issuer: "Cisco",
     year: "2024",
     image: "/images/certs/ciscp.webp",
-    fallbackImage: "/images/certs/ciscp.webp",
     color: "#00bceb",
   },
   {
@@ -21,7 +20,6 @@ const CERTIFICATIONS = [
     issuer: "Google",
     year: "2024",
     image: "/images/certs/google.webp",
-    fallbackImage: "/images/certs/google.webp",
     color: "#4285F4",
   },
   {
@@ -30,7 +28,6 @@ const CERTIFICATIONS = [
     issuer: "LinkedIn Learning",
     year: "2025",
     image: "/images/certs/1743751160681.webp",
-    fallbackImage: "/images/certs/1743751160681.webp",
     color: "#0077b5",
   },
   {
@@ -39,7 +36,6 @@ const CERTIFICATIONS = [
     issuer: "Online Platform",
     year: "2025",
     image: "/images/certs/1769664711406.webp",
-    fallbackImage: "/images/certs/1769664711406.webp",
     color: "#cda873",
   },
   {
@@ -48,7 +44,6 @@ const CERTIFICATIONS = [
     issuer: "Online Platform",
     year: "2025",
     image: "/images/certs/1769962098794.webp",
-    fallbackImage: "/images/certs/1769962098794.webp",
     color: "#cda873",
   },
   {
@@ -56,8 +51,23 @@ const CERTIFICATIONS = [
     name: "Merit Certificate",
     issuer: "Online Platform",
     year: "2025",
-    image: "/images/certs/pasted_file.webp",
-    fallbackImage: "/images/certs/1771907905062.webp",
+    image: "/images/certs/pasted file.webp",
+    color: "#cda873",
+  },
+  {
+    id: 7,
+    name: "Technical Achievement",
+    issuer: "Online Platform",
+    year: "2025",
+    image: "/images/certs/1771907905062.webp",
+    color: "#cda873",
+  },
+  {
+    id: 8,
+    name: "Skill Certificate",
+    issuer: "Online Platform",
+    year: "2025",
+    image: "/images/certs/1773199084635.webp",
     color: "#cda873",
   },
 ];
