@@ -19,14 +19,14 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-white/5 px-6 py-4 font-sans">
+    <nav className="fixed top-0 w-full z-50 bg-[#0b0b0b] border-b border-white/10 px-6 py-4 font-sans">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link
           href="/"
           onClick={playSelect}
           className="flex items-center gap-3 group"
         >
-          <div className="w-8 h-8 bg-[#cda873] text-black font-black text-sm flex items-center justify-center transition-transform group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(205,168,115,0.5)]">
+          <div className="w-8 h-8 bg-[#cda873] text-black font-black text-sm flex items-center justify-center transition-transform group-hover:scale-105">
             CB
           </div>
           <span className="text-lg font-bold tracking-widest text-white/90 group-hover:text-[#cda873] transition-colors duration-300 font-serif">
