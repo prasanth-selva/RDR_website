@@ -143,12 +143,12 @@ export default function ScrollytellingCanvas() {
             {/* Progress bar */}
             <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-[#cda873] to-white transition-all duration-300"
+                className="h-full bg-[#cda873] transition-all duration-300"
                 style={{ width: `${loadingProgress}%` }}
               />
             </div>
             <p className="text-sm font-sans tracking-widest text-white/50 uppercase">
-              Loading Experience... {loadingProgress}%
+              Loading... {loadingProgress}%
             </p>
           </div>
         </div>
@@ -158,8 +158,8 @@ export default function ScrollytellingCanvas() {
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full object-cover" />
 
-        {/* Dark vignette overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none z-[5]" />
+        {/* Flat overlay for readability */}
+        <div className="absolute inset-0 bg-black/40 pointer-events-none z-[5]" />
 
         {/* Overlay text sections */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-center">
@@ -188,9 +188,9 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
   const ctaY = useTransform(scrollYProgress, [0.83, 1], [60, 0]);
 
   const stats = [
-    { value: "8+", label: "Projects Built" },
-    { value: "5+", label: "Certifications" },
-    { value: "15+", label: "Tools Mastered" },
+    { value: "8", label: "Projects" },
+    { value: "8", label: "Certificates" },
+    { value: "Top 50", label: "CTF Rank" },
   ];
 
   return (
@@ -201,29 +201,17 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         style={{ opacity: heroOpacity, y: heroY }}
         className="absolute inset-0 flex flex-col items-center justify-center text-center"
       >
-        <p className="text-[#cda873] tracking-[0.5em] text-xs uppercase mb-6 font-sans font-bold">
-          Cyberbots Presents
+        <p className="text-[#cda873] tracking-[0.3em] text-xs uppercase mb-6 font-sans font-bold">
+          Portfolio
         </p>
         <h1
-          className="text-5xl md:text-8xl font-black tracking-tight font-serif"
-          style={{
-            color: "#ffffff",
-            WebkitTextStroke: "2px rgba(205,168,115,0.8)",
-            textShadow: "0 0 40px rgba(205,168,115,0.6), 0 0 80px rgba(0,0,0,0.9), 2px 4px 0px rgba(0,0,0,0.9), -2px -2px 0px rgba(0,0,0,0.8)",
-            filter: "drop-shadow(0 4px 20px rgba(0,0,0,0.95))",
-          }}
+          className="text-5xl md:text-7xl font-black tracking-tight font-serif text-white"
         >
           PRASANTH S
         </h1>
         <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
-        <p
-          className="text-lg md:text-2xl tracking-[0.25em] text-white/70 uppercase font-sans font-light"
-          style={{
-            WebkitTextStroke: "1px rgba(205,168,115,0.45)",
-            textShadow: "0 0 25px rgba(205,168,115,0.35), 0 2px 6px rgba(0,0,0,0.85)",
-          }}
-        >
-          AI Engineer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Founder
+        <p className="text-base md:text-lg tracking-wide text-white/80 font-sans">
+          AI engineer, cybersecurity, and web developer.
         </p>
       </motion.div>
 
@@ -232,14 +220,14 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         style={{ opacity: s1Opacity, x: s1X }}
         className="absolute inset-y-0 left-0 flex flex-col justify-center px-6 md:px-16 w-full md:w-[55%]"
       >
-        <p className="text-[#cda873] tracking-[0.3em] text-xs uppercase mb-4 font-sans font-bold">
-          About Me
+        <p className="text-[#cda873] tracking-[0.2em] text-xs uppercase mb-4 font-sans font-bold">
+          About
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 font-serif">
-          I Build Things That Matter
+          I build AI and security tools.
         </h2>
-        <p className="text-lg text-white/65 font-sans leading-relaxed">
-          Founder of <span className="text-[#cda873] font-semibold">Cyberbots</span> — a startup at the intersection of AI, mobile, and web. I engineer intelligent products: from real-time threat detection systems to cinematic digital experiences.
+        <p className="text-lg text-white/70 font-sans leading-relaxed">
+          Founder of Cyberbots. I build threat detection tools, SOC dashboards, and fast web apps for real use.
         </p>
       </motion.div>
 
@@ -248,11 +236,11 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         style={{ opacity: s2Opacity, x: s2X }}
         className="absolute inset-y-0 right-0 flex flex-col justify-center text-right px-6 md:px-16 w-full md:w-[55%]"
       >
-        <p className="text-[#cda873] tracking-[0.3em] text-xs uppercase mb-4 font-sans font-bold">
-          The Numbers
+        <p className="text-[#cda873] tracking-[0.2em] text-xs uppercase mb-4 font-sans font-bold">
+          Facts
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8 font-serif">
-          From Ideas to Products
+          Work to date
         </h2>
         <div className="flex justify-end gap-8 md:gap-12">
           {stats.map((s) => (
@@ -269,28 +257,28 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         style={{ opacity: ctaOpacity, y: ctaY }}
         className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
       >
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-serif mb-4">
-          Let&apos;s Build Something
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white font-serif mb-4">
+          Projects and contact
         </h2>
-        <p className="mt-2 text-lg text-white/60 font-sans mb-10">
-          Explore my work, skills, and the story behind Cyberbots.
+        <p className="mt-2 text-lg text-white/70 font-sans mb-10">
+          See projects, skills, and how to reach me.
         </p>
         <div className="flex gap-4 flex-wrap justify-center">
           <Link
             href="/world"
             onMouseEnter={playHover}
             onClick={() => { playSelect(); playPickup(); }}
-            className="px-8 py-4 bg-[#cda873] text-black font-sans font-bold tracking-wider uppercase hover:bg-[#e5cc98] transition-all duration-300 hover:shadow-[0_0_20px_rgba(205,168,115,0.4)] hover:-translate-y-0.5"
+            className="px-8 py-3 bg-[#cda873] text-black font-sans font-bold tracking-wider uppercase transition-all duration-200 hover:opacity-90"
           >
-            View Projects
+            Projects
           </Link>
           <Link
             href="/journal"
             onMouseEnter={playHover}
             onClick={playSelect}
-            className="px-8 py-4 border border-white/30 text-white font-sans font-bold tracking-wider uppercase hover:border-white/70 hover:bg-white/5 transition-all duration-300"
+            className="px-8 py-3 border border-white/30 text-white font-sans font-bold tracking-wider uppercase transition-all duration-200 hover:border-white/60"
           >
-            Contact Me
+            Contact
           </Link>
         </div>
       </motion.div>
