@@ -27,8 +27,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RED DEAD REDEMPTION II",
-  description: "Reassembling the future. The ultimate holographic scrollytelling experience.",
+  title: "Prasanth S — AI Engineer & Builder",
+  description:
+    "Portfolio of Prasanth S, Founder of Cyberbots. AI Engineer, Full-Stack Developer, and Mobile Developer building intelligent products that matter.",
+  keywords: [
+    "Prasanth S",
+    "AI Engineer",
+    "Full-Stack Developer",
+    "Flutter Developer",
+    "Cyberbots",
+    "Portfolio",
+    "Machine Learning",
+    "Computer Vision",
+  ],
+  authors: [{ name: "Prasanth S", url: "https://github.com/prasanth-selva" }],
+  openGraph: {
+    title: "Prasanth S — AI Engineer & Builder",
+    description: "Cinematic portfolio of Prasanth S, Founder of Cyberbots.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
