@@ -60,7 +60,7 @@ export default function ContactPage() {
   const { playSelect, playHover } = useGameSounds();
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("prasanth@cyberbots.dev").then(() => {
+    navigator.clipboard.writeText("prasanthselvaraj1511@gmail.com").then(() => {
       setCopied(true);
       playSelect();
       setTimeout(() => setCopied(false), 2000);
