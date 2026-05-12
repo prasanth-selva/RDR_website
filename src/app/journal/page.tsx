@@ -26,7 +26,7 @@ const SOCIAL_LINKS = [
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
-    color: "#0077b5",
+    color: "#cda873",
   },
   {
     name: "Email",
@@ -38,7 +38,7 @@ const SOCIAL_LINKS = [
         <polyline points="22,6 12,13 2,6" />
       </svg>
     ),
-    color: "#4ade80",
+    color: "#cda873",
   },
 ];
 
@@ -68,13 +68,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif overflow-hidden flex items-center justify-center">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#cda873]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#8b0000]/8 rounded-full blur-[100px]" />
-      </div>
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none" />
+    <main className="min-h-screen bg-[#0b0b0b] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif flex items-center justify-center">
 
       <div className="relative z-10 w-full max-w-3xl mx-auto">
         <motion.div
@@ -84,27 +78,26 @@ export default function ContactPage() {
           className="flex flex-col items-center text-center"
         >
           {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <span className="text-[#cda873] tracking-[0.5em] text-xs uppercase font-sans font-bold">
-              Open to Opportunities
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="text-[#cda873] tracking-[0.3em] text-xs uppercase font-sans font-bold">
+              Contact
             </span>
           </motion.div>
 
           {/* Hero heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl font-black tracking-tighter text-white mb-4 leading-none"
+            className="text-4xl md:text-6xl font-black tracking-tight text-white mb-4 leading-none"
           >
-            LET&apos;S BUILD
+            LET&apos;S TALK
           </motion.h1>
           <motion.div variants={itemVariants} className="w-24 h-[2px] bg-[#cda873] mb-8 opacity-70" />
 
           <motion.p
             variants={itemVariants}
-            className="text-xl text-white/60 font-sans leading-relaxed mb-16 max-w-xl"
+            className="text-lg text-white/70 font-sans leading-relaxed mb-12 max-w-xl"
           >
-            I&apos;m available for full-time roles, freelance projects, and exciting collaborations.
-            If you have an idea worth building — let&apos;s talk.
+            Open to full-time roles and freelance work. Share the role or project details and I will reply.
           </motion.p>
 
           {/* Social links */}
@@ -117,12 +110,12 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 onMouseEnter={playHover}
                 whileHover={{ scale: 1.02, x: 4 }}
-                className="group flex items-center gap-5 p-5 bg-[#0d0d0d] border border-white/8 hover:border-white/20 transition-all duration-300 text-left"
+                className="group flex items-center gap-5 p-5 bg-[#111] border border-white/10 hover:border-[#cda873]/40 transition-all duration-200 text-left"
                 style={{ "--link-color": link.color } as React.CSSProperties}
               >
                 <div
                   className="w-12 h-12 flex items-center justify-center flex-shrink-0 transition-colors duration-300"
-                  style={{ color: link.color, backgroundColor: `${link.color}15`, border: `1px solid ${link.color}30` }}
+                  style={{ color: link.color, backgroundColor: "#0f0f0f", border: `1px solid ${link.color}40` }}
                 >
                   {link.icon}
                 </div>
@@ -132,7 +125,7 @@ export default function ContactPage() {
                     {link.handle}
                   </p>
                 </div>
-                <span className="text-white/20 group-hover:text-white/60 transition-colors text-2xl font-serif">→</span>
+                <span className="text-white/20 group-hover:text-white/60 transition-colors text-2xl">→</span>
               </motion.a>
             ))}
           </motion.div>
@@ -142,7 +135,7 @@ export default function ContactPage() {
             <button
               onClick={copyEmail}
               onMouseEnter={playHover}
-              className="w-full p-4 border border-dashed border-white/20 text-white/40 font-sans text-sm tracking-widest uppercase hover:border-[#cda873]/40 hover:text-[#cda873]/60 transition-all duration-300"
+              className="w-full p-4 border border-dashed border-white/20 text-white/60 font-sans text-sm tracking-widest uppercase hover:border-[#cda873]/50 hover:text-[#cda873] transition-all duration-200"
             >
               {copied ? "✓ Email Copied to Clipboard!" : "Click to Copy Email Address"}
             </button>
@@ -155,7 +148,7 @@ export default function ContactPage() {
               download
               onMouseEnter={playHover}
               onClick={playSelect}
-              className="inline-flex items-center gap-3 px-10 py-4 bg-[#cda873] text-black font-sans font-bold tracking-widest uppercase transition-all duration-300 hover:bg-[#e5cc98] hover:shadow-[0_0_30px_rgba(205,168,115,0.3)] hover:-translate-y-1"
+              className="inline-flex items-center gap-3 px-10 py-3 bg-[#cda873] text-black font-sans font-bold tracking-widest uppercase transition-all duration-200 hover:opacity-90"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -167,15 +160,15 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Cyberbots signature */}
-          <motion.div variants={itemVariants} className="mt-20 pt-8 border-t border-white/5 w-full text-center">
+          <motion.div variants={itemVariants} className="mt-16 pt-6 border-t border-white/10 w-full text-center">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-8 h-8 bg-[#cda873] text-black font-black text-xs flex items-center justify-center">
                 CB
               </div>
-              <span className="text-white/30 font-sans text-sm tracking-widest uppercase">Cyberbots</span>
+              <span className="text-white/40 font-sans text-sm tracking-widest uppercase">Cyberbots</span>
             </div>
-            <p className="text-white/20 text-xs font-sans tracking-wider uppercase">
-              Founded by Prasanth &nbsp;·&nbsp; Building Intelligent Products
+            <p className="text-white/30 text-xs font-sans tracking-wider uppercase">
+              Founded by Prasanth
             </p>
           </motion.div>
         </motion.div>
