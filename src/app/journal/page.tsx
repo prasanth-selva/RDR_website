@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { useGameSounds } from "@/hooks/useGameSounds";
 
@@ -49,9 +50,9 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function ContactPage() {
