@@ -12,7 +12,7 @@ const CERTIFICATIONS = [
     issuer: "Cisco",
     year: "2024",
     image: "/images/certs/ciscp.webp",
-    color: "#00bceb",
+    color: "#cda873",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const CERTIFICATIONS = [
     issuer: "Google",
     year: "2024",
     image: "/images/certs/google.webp",
-    color: "#4285F4",
+    color: "#cda873",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const CERTIFICATIONS = [
     issuer: "LinkedIn Learning",
     year: "2025",
     image: "/images/certs/1743751160681.webp",
-    color: "#0077b5",
+    color: "#cda873",
   },
   {
     id: 4,
@@ -103,8 +103,7 @@ export default function CertCarousel() {
           >
             {/* Cert image card */}
             <div
-              className="relative w-full h-full rounded-sm overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)]"
-              style={{ boxShadow: `0 0 40px ${current.color}20, 0 0 0 1px ${current.color}15` }}
+              className="relative w-full h-full rounded-sm overflow-hidden border border-white/10"
             >
               {/* Image */}
               <div className="absolute inset-0 bg-[#111] flex items-center justify-center">
@@ -131,9 +130,6 @@ export default function CertCarousel() {
                   <p className="text-white/60 font-sans text-sm tracking-widest uppercase">{current.name}</p>
                 </div>
               </div>
-
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
               {/* Badge */}
               <div
