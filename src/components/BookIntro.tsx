@@ -62,7 +62,7 @@ export default function BookIntro() {
                 src="/images/intro-scene.png"
                 alt="Intro visual"
                 fill
-                className="object-cover"
+                className="object-cover object-[50%_15%]"
                 priority
               />
             </div>
