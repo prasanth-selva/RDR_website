@@ -3,95 +3,104 @@
 import { motion } from "framer-motion";
 import { useGameSounds } from "@/hooks/useGameSounds";
 
-const STORY_CHAPTERS = [
+const JOURNEY_MILESTONES = [
   {
-    chapter: "Chapter 1",
-    title: "Colter",
-    description: "After a botched ferry heist in Blackwater, the Van der Linde gang is forced to flee into the snowy mountains of Ambarino. Freezing and starving, they must survive the harsh winter and rival gangs.",
-    image: "https://www.transparenttextures.com/patterns/black-twine.png"
+    year: "2022",
+    title: "The Spark",
+    description:
+      "Started with Python and fell in love with code. Began building AI experiments, dissecting computer vision algorithms, and understanding the raw power of machine learning on real datasets.",
+    tag: "Origin Story",
   },
   {
-    chapter: "Chapter 2",
-    title: "Horseshoe Overlook",
-    description: "The gang descends from the mountains and establishes a new camp near the livestock town of Valentine. Arthur Morgan begins collecting debts and causing trouble, while Dutch plots their next big score.",
-    image: "https://www.transparenttextures.com/patterns/worn-dots.png"
+    year: "2023",
+    title: "Founded Cyberbots",
+    description:
+      "Established Cyberbots — a startup at the intersection of AI, mobile, and web. Began taking on real-world projects for clients, institutions, and research labs. The mission: build things that actually work.",
+    tag: "Entrepreneurship",
   },
   {
-    chapter: "Chapter 3",
-    title: "Clemens Point",
-    description: "Moving south to Lemoyne, the gang sets up camp near Rhodes. They attempt to play two rival plantation families—the Grays and the Braithwaites—against each other, but the plan goes horribly wrong.",
-    image: "https://www.transparenttextures.com/patterns/dark-leather.png"
+    year: "2023",
+    title: "AI & Computer Vision",
+    description:
+      "Built SafeWatch — a real-time CCTV threat detection system using YOLO and OpenCV, capable of identifying fights, falls, and harassment. Integrated the Civic AI Shield pipeline with Streamlit dashboards and alert systems.",
+    tag: "AI / ML",
   },
   {
-    chapter: "Chapter 4",
-    title: "Saint Denis",
-    description: "The gang relocates to the swampy outskirts of the bustling industrial city of Saint Denis. Dutch's desperate attempts to secure enough money to flee the country lead to a disastrous bank robbery.",
-    image: "https://www.transparenttextures.com/patterns/black-scales.png"
+    year: "2024",
+    title: "Going Mobile",
+    description:
+      "Expanded deep into Flutter mobile development. Delivered Mudra (print ordering platform with Razorpay payments), Seshadri Lab App for a university research lab, Streakly habit tracker, and HABIT Monitor — all to real users.",
+    tag: "Mobile Dev",
   },
   {
-    chapter: "Chapter 5",
-    title: "Guarma",
-    description: "Following the failed bank heist, Arthur, Dutch, and a few others are shipwrecked on the tropical island of Guarma. They must fight alongside local rebels to secure a way back to America.",
-    image: "https://www.transparenttextures.com/patterns/dust.png"
+    year: "2025",
+    title: "Web & Cinematic Experiences",
+    description:
+      "Built premium web experiences: the Koenigsegg hypercar site, HENNGE enterprise portal, a 3D premium agency site, and this cinematic scroll-driven portfolio. Earned certifications from Google and CISCP along the way.",
+    tag: "Web / Design",
   },
   {
-    chapter: "Chapter 6",
-    title: "Beaver Hollow",
-    description: "Reunited but broken, the gang makes their final stand in Roanoke Ridge. Dutch's paranoia grows, Micah's influence takes hold, and Arthur faces his own mortality as the gang tears itself apart.",
-    image: "https://www.transparenttextures.com/patterns/stardust.png"
-  }
+    year: "Now",
+    title: "Building the Future",
+    description:
+      "Open to full-time engineering roles, freelance collaboration, and startup partnerships. Currently deepening expertise in AI at the edge, multimodal systems, and cross-platform product engineering.",
+    tag: "Open to Work",
+  },
 ];
 
-export default function StoryPage() {
+export default function JourneyPage() {
   const { playHover } = useGameSounds();
 
   return (
     <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
-      {/* Background Texture */}
-      <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none mix-blend-overlay z-0"></div>
-      
+      <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none mix-blend-overlay z-0" />
+
       <div className="relative z-10 max-w-4xl mx-auto">
-        
         <div className="text-center mb-24">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#8b0000] drop-shadow-lg mb-4">THE SAGA</h1>
-          <p className="text-xl tracking-[0.3em] uppercase text-[#cda873] font-sans">Outlaws to the End</p>
+          <p className="text-xs font-sans tracking-[0.4em] text-[#cda873] uppercase mb-4 font-bold">My Story</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg mb-4">
+            THE JOURNEY
+          </h1>
+          <div className="w-16 h-[2px] bg-[#cda873] mx-auto mb-4 opacity-60" />
+          <p className="text-xl tracking-[0.2em] uppercase text-white/50 font-sans text-sm">
+            Building with Purpose
+          </p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="relative border-l-2 border-[#8b0000]/30 ml-4 md:ml-8 space-y-24">
-          
-          {STORY_CHAPTERS.map((chapter, index) => (
-            <motion.div 
+        {/* Vertical timeline */}
+        <div className="relative border-l-2 border-[#cda873]/20 ml-4 md:ml-8 space-y-20">
+          {JOURNEY_MILESTONES.map((milestone, index) => (
+            <motion.div
               key={index}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-150px" }}
-              transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+              viewport={{ once: true, margin: "-120px" }}
+              transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
               className="relative pl-8 md:pl-16"
               onMouseEnter={playHover}
             >
               {/* Timeline dot */}
-              <div className="absolute -left-[11px] top-2 w-5 h-5 bg-[#050505] border-4 border-[#8b0000] rounded-full shadow-[0_0_10px_#8b0000]"></div>
-              
-              <div className="group relative bg-[#0a0a0a] border border-white/10 p-8 hover:border-[#cda873]/40 transition-colors duration-500 overflow-hidden">
-                <div 
-                  className="absolute inset-0 opacity-10 group-hover:opacity-30 transition-opacity duration-700 mix-blend-overlay pointer-events-none"
-                  style={{ backgroundImage: `url(${chapter.image})` }}
-                ></div>
-                
-                <h3 className="text-[#cda873] font-sans tracking-widest text-sm uppercase mb-2">
-                  {chapter.chapter}
-                </h3>
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 group-hover:text-[#e5cc98] transition-colors">
-                  {chapter.title}
+              <div className="absolute -left-[11px] top-4 w-5 h-5 bg-[#050505] border-4 border-[#cda873] rounded-full shadow-[0_0_12px_rgba(205,168,115,0.5)]" />
+
+              <div className="group relative bg-[#0a0a0a] border border-white/8 p-8 hover:border-[#cda873]/30 transition-colors duration-500 overflow-hidden">
+                {/* Hover glow */}
+                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cda873] transition-all duration-500 group-hover:w-full" />
+
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="text-[#cda873] font-black text-2xl font-sans">{milestone.year}</span>
+                  <span className="text-xs font-sans tracking-widest uppercase text-white/30 border border-white/10 px-3 py-1">
+                    {milestone.tag}
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#e5cc98] transition-colors">
+                  {milestone.title}
                 </h2>
-                <p className="text-white/70 font-sans leading-relaxed text-lg">
-                  {chapter.description}
+                <p className="text-white/65 font-sans leading-relaxed text-base">
+                  {milestone.description}
                 </p>
               </div>
             </motion.div>
           ))}
-
         </div>
       </div>
     </main>
