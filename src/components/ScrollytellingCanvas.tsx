@@ -176,7 +176,15 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         <p className="text-[#cda873] tracking-[0.5em] text-xs uppercase mb-6 font-sans font-bold">
           Cyberbots Presents
         </p>
-        <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] font-serif">
+        <h1
+          className="text-5xl md:text-8xl font-black tracking-tight font-serif"
+          style={{
+            color: "#ffffff",
+            WebkitTextStroke: "2px rgba(205,168,115,0.8)",
+            textShadow: "0 0 40px rgba(205,168,115,0.6), 0 0 80px rgba(0,0,0,0.9), 2px 4px 0px rgba(0,0,0,0.9), -2px -2px 0px rgba(0,0,0,0.8)",
+            filter: "drop-shadow(0 4px 20px rgba(0,0,0,0.95))",
+          }}
+        >
           PRASANTH S
         </h1>
         <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
