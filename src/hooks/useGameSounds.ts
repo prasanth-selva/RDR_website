@@ -32,7 +32,7 @@ export function useGameSounds() {
     osc.frequency.setValueAtTime(900, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.04);
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 0.008);
+    gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.008);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
     osc.connect(gain); gain.connect(ctx.destination);
     osc.start(); osc.stop(ctx.currentTime + 0.04);
@@ -48,7 +48,7 @@ export function useGameSounds() {
     osc.frequency.setValueAtTime(160, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.1);
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.28, ctx.currentTime + 0.015);
+    gain.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.015);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
     osc.connect(gain); gain.connect(ctx.destination);
     osc.start(); osc.stop(ctx.currentTime + 0.14);
@@ -65,7 +65,7 @@ export function useGameSounds() {
     osc.frequency.setValueAtTime(400, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(60, ctx.currentTime + 0.06);
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.35, ctx.currentTime + 0.005);
+    gain.gain.linearRampToValueAtTime(0.45, ctx.currentTime + 0.005);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.06);
     // Metallic ring overlay
     const osc2 = ctx.createOscillator();
@@ -74,7 +74,7 @@ export function useGameSounds() {
     osc2.frequency.setValueAtTime(2800, ctx.currentTime);
     osc2.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.08);
     gain2.gain.setValueAtTime(0, ctx.currentTime);
-    gain2.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.005);
+    gain2.gain.linearRampToValueAtTime(0.18, ctx.currentTime + 0.005);
     gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
     osc.connect(gain); gain.connect(ctx.destination);
     osc2.connect(gain2); gain2.connect(ctx.destination);
@@ -97,7 +97,7 @@ export function useGameSounds() {
     filter.type = "lowpass";
     filter.frequency.value = 180;
     const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.9, ctx.currentTime);
+    gain.gain.setValueAtTime(1.0, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
     // Sharp crack
     const crack = ctx.createOscillator();
@@ -106,7 +106,7 @@ export function useGameSounds() {
     crack.frequency.setValueAtTime(800, ctx.currentTime);
     crack.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.05);
     crackGain.gain.setValueAtTime(0, ctx.currentTime);
-    crackGain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 0.002);
+    crackGain.gain.linearRampToValueAtTime(0.7, ctx.currentTime + 0.002);
     crackGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
     noise.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
     crack.connect(crackGain); crackGain.connect(ctx.destination);
@@ -124,7 +124,7 @@ export function useGameSounds() {
     osc.frequency.setValueAtTime(120, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(28, ctx.currentTime + 0.25);
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.7, ctx.currentTime + 0.005);
+    gain.gain.linearRampToValueAtTime(0.9, ctx.currentTime + 0.005);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
     osc.connect(gain); gain.connect(ctx.destination);
     osc.start(); osc.stop(ctx.currentTime + 0.25);
@@ -141,8 +141,8 @@ export function useGameSounds() {
     osc.frequency.linearRampToValueAtTime(900, ctx.currentTime + 0.15);
     osc.frequency.linearRampToValueAtTime(650, ctx.currentTime + 0.5);
     gain.gain.setValueAtTime(0, ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 0.05);
-    gain.gain.setValueAtTime(0.15, ctx.currentTime + 0.4);
+    gain.gain.linearRampToValueAtTime(0.22, ctx.currentTime + 0.05);
+    gain.gain.setValueAtTime(0.22, ctx.currentTime + 0.4);
     gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
     osc.connect(gain); gain.connect(ctx.destination);
     osc.start(); osc.stop(ctx.currentTime + 0.5);
@@ -158,7 +158,7 @@ export function useGameSounds() {
       osc.type = "sine";
       osc.frequency.value = 1800 + i * 300;
       gain.gain.setValueAtTime(0, ctx.currentTime + offset);
-      gain.gain.linearRampToValueAtTime(0.07, ctx.currentTime + offset + 0.005);
+      gain.gain.linearRampToValueAtTime(0.1, ctx.currentTime + offset + 0.005);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + offset + 0.12);
       osc.connect(gain); gain.connect(ctx.destination);
       osc.start(ctx.currentTime + offset);
@@ -176,7 +176,7 @@ export function useGameSounds() {
     thunk.type = "square";
     thunk.frequency.setValueAtTime(200, ctx.currentTime);
     thunk.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.08);
-    thunkGain.gain.setValueAtTime(0.3, ctx.currentTime);
+    thunkGain.gain.setValueAtTime(0.45, ctx.currentTime);
     thunkGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
     // Slide back
     const slide = ctx.createOscillator();
@@ -185,7 +185,7 @@ export function useGameSounds() {
     slide.frequency.setValueAtTime(600, ctx.currentTime + 0.1);
     slide.frequency.exponentialRampToValueAtTime(300, ctx.currentTime + 0.2);
     slideGain.gain.setValueAtTime(0, ctx.currentTime + 0.1);
-    slideGain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.12);
+    slideGain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + 0.12);
     slideGain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
     thunk.connect(thunkGain); thunkGain.connect(ctx.destination);
     slide.connect(slideGain); slideGain.connect(ctx.destination);
@@ -205,8 +205,8 @@ export function useGameSounds() {
       osc.frequency.value = freq;
       const t = ctx.currentTime + i * 0.08;
       gain.gain.setValueAtTime(0, t);
-      gain.gain.linearRampToValueAtTime(0.18, t + 0.02);
-      gain.gain.setValueAtTime(0.18, t + 0.1);
+      gain.gain.linearRampToValueAtTime(0.24, t + 0.02);
+      gain.gain.setValueAtTime(0.24, t + 0.1);
       gain.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
       osc.connect(gain); gain.connect(ctx.destination);
       osc.start(t); osc.stop(t + 0.35);
@@ -224,7 +224,7 @@ export function useGameSounds() {
       osc.frequency.value = freq;
       const t = ctx.currentTime + i * 0.04;
       gain.gain.setValueAtTime(0, t);
-      gain.gain.linearRampToValueAtTime(0.12, t + 0.01);
+      gain.gain.linearRampToValueAtTime(0.18, t + 0.01);
       gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
       osc.connect(gain); gain.connect(ctx.destination);
       osc.start(t); osc.stop(t + 0.2);
@@ -246,7 +246,7 @@ export function useGameSounds() {
       filter.type = "lowpass";
       filter.frequency.value = 400;
       const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.4, ctx.currentTime + offset);
+      gain.gain.setValueAtTime(0.55, ctx.currentTime + offset);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + offset + 0.04);
       src.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
       src.start(ctx.currentTime + offset);
