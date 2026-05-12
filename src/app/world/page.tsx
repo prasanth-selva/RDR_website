@@ -12,7 +12,7 @@ const PROJECTS = [
       "AI-powered CCTV monitoring system using computer vision for real-time public safety threat detection. Scalable architecture supporting continuous low-latency inference on live video streams.",
     stack: ["Python", "OpenCV", "Computer Vision", "React"],
     status: "DEPLOYED",
-    statusColor: "text-[#4ade80]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "SOC Anomaly Dashboard",
@@ -21,7 +21,7 @@ const PROJECTS = [
       "Real-time SOC dashboard with custom ML anomaly-scoring engine. Monitors, visualises, and triages network threats — from raw packet ingestion through feature engineering to live alert generation.",
     stack: ["Python", "FastAPI", "React", "Scikit-learn"],
     status: "BUILT",
-    statusColor: "text-[#4ade80]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "PII Masking Tool",
@@ -30,7 +30,7 @@ const PROJECTS = [
       "High-accuracy web tool that detects and redacts personally identifiable information from ID documents using EasyOCR. Secure upload/download with zero server-side storage.",
     stack: ["Python", "EasyOCR", "FastAPI", "Web Tech"],
     status: "BUILT",
-    statusColor: "text-[#60a5fa]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "Porsche 3D Showcase",
@@ -39,7 +39,7 @@ const PROJECTS = [
       "Scroll-driven 3D landing page with cinematic camera transitions and real-time WebGL model rendering. Optimised to sustain 60 fps on desktop and mobile with compressed asset pipelines.",
     stack: ["Three.js", "WebGL", "GSAP", "JavaScript"],
     status: "LIVE",
-    statusColor: "text-[#f472b6]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "BMW 3D Interactive",
@@ -48,7 +48,7 @@ const PROJECTS = [
       "Custom GLSL fragment and vertex shaders producing dramatic lighting and reflection effects entirely in-browser. Lazy loading and compressed assets for fast initial load without sacrificing quality.",
     stack: ["Three.js", "GLSL Shaders", "WebGL", "GSAP"],
     status: "LIVE",
-    statusColor: "text-[#f472b6]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "Zenith & FusionX Sites",
@@ -57,7 +57,7 @@ const PROJECTS = [
       "Official inter-collegiate symposium websites for KGISL Institute of Technology. Both remain live: zenith-kite.netlify.app and fusionxkitex.netlify.app.",
     stack: ["Next.js", "JavaScript", "HTML5", "CSS3"],
     status: "LIVE",
-    statusColor: "text-[#f472b6]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "RDR Portfolio Site",
@@ -66,7 +66,7 @@ const PROJECTS = [
       "This cinematic scroll-driven portfolio. 120 WebP animation frames (from 333MB PNG → 26MB), Framer Motion overlays, 3D tilt cards, and Web Audio API game sounds.",
     stack: ["Next.js", "Framer Motion", "WebP", "TypeScript"],
     status: "LIVE",
-    statusColor: "text-[#f472b6]",
+    statusColor: "text-[#cda873]",
   },
   {
     name: "Streakly / LifeOS",
@@ -75,7 +75,7 @@ const PROJECTS = [
       "AI-powered habit tracking super-app with streak management, multi-metric analytics, calendar heatmaps, and a swipeable home screen dashboard.",
     stack: ["Flutter", "Firebase", "Dart"],
     status: "BUILT",
-    statusColor: "text-[#60a5fa]",
+    statusColor: "text-[#cda873]",
   },
 ];
 
@@ -83,39 +83,31 @@ export default function ProjectsPage() {
   const { playHover, playSelect, playRevolver, playNotification, playPickup } = useGameSounds();
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none mix-blend-overlay z-0" />
+    <main className="min-h-screen bg-[#0b0b0b] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <p className="text-xs font-sans tracking-[0.4em] text-[#cda873] uppercase mb-4 font-bold">What I&apos;ve Built</p>
-          <h1
-            className="text-5xl md:text-8xl font-black tracking-tight mb-4"
-            style={{
-              color: "#ffffff",
-              WebkitTextStroke: "1px rgba(205,168,115,0.6)",
-              textShadow: "0 0 30px rgba(205,168,115,0.3), 2px 4px 0 rgba(0,0,0,0.8)",
-            }}
-          >
+        <div className="text-center mb-16">
+          <p className="text-xs font-sans tracking-[0.3em] text-[#cda873] uppercase mb-4 font-bold">Projects</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-white">
             PROJECTS
           </h1>
-          <div className="w-24 h-[2px] bg-[#cda873] mx-auto mb-6 opacity-60" />
-          <p className="text-white/50 font-sans tracking-[0.2em] uppercase text-sm">
-            Real products. Real impact. Shipped in the wild.
+          <div className="w-20 h-[2px] bg-[#cda873] mx-auto mb-6 opacity-70" />
+          <p className="text-white/60 font-sans tracking-wide text-sm">
+            Shipped work across AI, security, web, and mobile.
           </p>
         </div>
 
         {/* Cybersecurity focus */}
         <div className="mb-12 text-center">
-          <p className="text-xs font-sans tracking-[0.4em] text-[#4ade80] uppercase mb-4 font-bold">Cybersecurity Focus</p>
+          <p className="text-xs font-sans tracking-[0.3em] text-[#cda873] uppercase mb-4 font-bold">Cybersecurity focus</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {["Civic AIShield", "SOC Anomaly Dashboard", "PII Masking Tool"].map((item) => (
               <button
                 key={item}
                 type="button"
                 onMouseEnter={playHover}
-                className="text-[11px] font-sans uppercase tracking-widest px-3 py-1.5 border border-[#4ade80]/30 text-[#4ade80] bg-[#0b120b]"
+                className="text-[11px] font-sans uppercase tracking-widest px-3 py-1.5 border border-[#cda873]/40 text-[#cda873] bg-[#111]"
               >
                 {item}
               </button>
@@ -136,7 +128,7 @@ export default function ProjectsPage() {
               <TiltCard
                 onHoverStart={() => { playHover(); if (i % 3 === 0) playRevolver(); if (i % 4 === 0) playNotification(); }}
                 onClick={() => { playSelect(); if (i % 2 === 0) playPickup(); }}
-                className="h-full min-h-[320px] bg-[#0d0d0d] border-white/10 p-6 flex flex-col group"
+                className="h-full min-h-[320px] bg-[#111] border-white/10 p-6 flex flex-col group"
               >
                 {/* Status badge */}
                 <div className="flex justify-between items-start mb-4">
