@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useScroll, useTransform, useMotionValueEvent, motion } from "framer-motion";
+import Link from "next/link";
 
-const TOTAL_FRAMES = 240;
+const TOTAL_FRAMES = 120;
 
 const pad = (n: number) => n.toString().padStart(3, "0");
-const getSrc = (i: number) => `/images/hero/ezgif-frame-${pad(i)}.png`;
+const getSrc = (i: number) => `/images/hero-webp/ezgif-frame-${pad(i)}.webp`;
 
 export default function ScrollytellingCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,23 +16,19 @@ export default function ScrollytellingCanvas() {
   const [loaded, setLoaded] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
 
-  // Scroll logic
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Map scroll progress (0-1) to frame index (1-240)
   const frameIndex = useTransform(scrollYProgress, [0, 1], [1, TOTAL_FRAMES]);
 
-  // Preload images
+  // Preload images in parallel batches
   useEffect(() => {
     const loadImages = async () => {
       const loadedImages: HTMLImageElement[] = [];
       let loadedCount = 0;
 
-      // To speed up loading, we can load them in parallel batches, 
-      // but sequential is safer for ordering. Let's do parallel batches of 10.
       const batchSize = 10;
       for (let i = 1; i <= TOTAL_FRAMES; i += batchSize) {
         const promises = [];
@@ -47,7 +44,7 @@ export default function ScrollytellingCanvas() {
             img.onerror = () => {
               loadedCount++;
               setLoadingProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-              resolve(img); // Resolve anyway to not break Promise.all
+              resolve(img);
             };
           });
           promises.push(promise);
@@ -55,7 +52,7 @@ export default function ScrollytellingCanvas() {
         const batchImages = await Promise.all(promises);
         loadedImages.push(...batchImages);
       }
-      
+
       setImages(loadedImages);
       setLoaded(true);
     };
@@ -63,72 +60,46 @@ export default function ScrollytellingCanvas() {
     loadImages();
   }, []);
 
-  // Draw image to canvas
   const drawImage = (index: number) => {
     if (!canvasRef.current || images.length === 0) return;
-    
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Use 1-based index but arrays are 0-indexed
     const image = images[index - 1];
-    if (!image || !image.width) return; // check if image is valid
+    if (!image || !image.width) return;
 
-    // Set canvas dimensions to match window size for full bleed
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Calculate aspect ratio to fit image while covering the area (or containing it)
-    // The prompt asked for "contain fit" - meaning we see the whole product.
     const hRatio = canvas.width / image.width;
     const vRatio = canvas.height / image.height;
-    const ratio = Math.max(hRatio, vRatio); // Use max for cover
+    const ratio = Math.max(hRatio, vRatio);
 
     const centerShift_x = (canvas.width - image.width * ratio) / 2;
     const centerShift_y = (canvas.height - image.height * ratio) / 2;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(
-      image,
-      0,
-      0,
-      image.width,
-      image.height,
-      centerShift_x,
-      centerShift_y,
-      image.width * ratio,
-      image.height * ratio
-    );
+    ctx.drawImage(image, 0, 0, image.width, image.height, centerShift_x, centerShift_y, image.width * ratio, image.height * ratio);
   };
 
-  // Initial draw when loaded
   useEffect(() => {
-    if (loaded) {
-      drawImage(1);
-    }
+    if (loaded) drawImage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
 
-  // Redraw on window resize
   useEffect(() => {
     const handleResize = () => {
-      if (loaded) {
-        drawImage(Math.round(frameIndex.get()));
-      }
+      if (loaded) drawImage(Math.round(frameIndex.get()));
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
 
-  // Update canvas on scroll
   useMotionValueEvent(frameIndex, "change", (latest) => {
     if (loaded) {
-      // Use requestAnimationFrame to ensure smooth drawing without stutter
-      requestAnimationFrame(() => {
-        drawImage(Math.round(latest));
-      });
+      requestAnimationFrame(() => drawImage(Math.round(latest)));
     }
   });
 
@@ -136,24 +107,33 @@ export default function ScrollytellingCanvas() {
     <div ref={containerRef} className="relative h-[400vh] w-full bg-[#050505]">
       {!loaded && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505]">
-          <div className="flex flex-col items-center">
-            <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/10 border-t-white"></div>
-            <p className="mt-4 text-sm font-medium tracking-widest text-white/60">
-              INITIALIZING EXPERIENCE... {loadingProgress}%
+          <div className="flex flex-col items-center gap-6">
+            {/* Animated logo */}
+            <div className="w-16 h-16 bg-[#cda873] text-black font-black text-2xl flex items-center justify-center animate-pulse">
+              CB
+            </div>
+            {/* Progress bar */}
+            <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-[#cda873] to-white transition-all duration-300"
+                style={{ width: `${loadingProgress}%` }}
+              />
+            </div>
+            <p className="text-sm font-sans tracking-widest text-white/50 uppercase">
+              Loading Experience... {loadingProgress}%
             </p>
           </div>
         </div>
       )}
-      
-      {/* Sticky container for the canvas */}
+
+      {/* Sticky canvas container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* We can place the canvas in an absolute div with gradient edges to hide seams if the image isn't perfectly solid */}
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        
-        {/* Overlays */}
+        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full object-cover" />
+
+        {/* Dark vignette overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none z-[5]" />
+
+        {/* Overlay text sections */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-center">
           <OverlayText scrollYProgress={scrollYProgress} />
         </div>
@@ -162,85 +142,111 @@ export default function ScrollytellingCanvas() {
   );
 }
 
-// Separate component for text overlays so we can use useTransform without cluttering the main component
 function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
-  const { motion } = require("framer-motion");
+  // 0–20%: Hero
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.05, 0.18, 0.22], [0, 1, 1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.22], [0, -60]);
 
-  // Define opacity and transform for each section
-  // 0% - 10%: Hero Headline
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.05, 0.15, 0.2], [0, 1, 1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+  // 28–48%: Section 1 — intro blurb
+  const s1Opacity = useTransform(scrollYProgress, [0.28, 0.33, 0.44, 0.49], [0, 1, 1, 0]);
+  const s1X = useTransform(scrollYProgress, [0.28, 0.49], [-60, 0]);
 
-  // 25% - 40%: Feature #1
-  const f1Opacity = useTransform(scrollYProgress, [0.25, 0.3, 0.4, 0.45], [0, 1, 1, 0]);
-  const f1X = useTransform(scrollYProgress, [0.25, 0.45], [-50, 0]);
+  // 55–75%: Section 2 — stats
+  const s2Opacity = useTransform(scrollYProgress, [0.55, 0.6, 0.7, 0.75], [0, 1, 1, 0]);
+  const s2X = useTransform(scrollYProgress, [0.55, 0.75], [60, 0]);
 
-  // 50% - 75%: Feature #2
-  const f2Opacity = useTransform(scrollYProgress, [0.55, 0.6, 0.7, 0.75], [0, 1, 1, 0]);
-  const f2X = useTransform(scrollYProgress, [0.55, 0.75], [50, 0]);
+  // 83–100%: CTA
+  const ctaOpacity = useTransform(scrollYProgress, [0.83, 0.88, 1], [0, 1, 1]);
+  const ctaY = useTransform(scrollYProgress, [0.83, 1], [60, 0]);
 
-  // 85% - 100%: CTA
-  const ctaOpacity = useTransform(scrollYProgress, [0.85, 0.9, 1], [0, 1, 1]);
-  const ctaY = useTransform(scrollYProgress, [0.85, 1], [50, 0]);
+  const stats = [
+    { value: "8+", label: "Projects Built" },
+    { value: "5+", label: "Certifications" },
+    { value: "15+", label: "Tools Mastered" },
+  ];
 
   return (
-    <div className="relative h-full w-full max-w-7xl mx-auto px-6 lg:px-12">
-      {/* 0% Scroll */}
+    <div className="relative h-full w-full max-w-7xl mx-auto px-6 lg:px-16">
+
+      {/* === HERO: 0% === */}
       <motion.div
         style={{ opacity: heroOpacity, y: heroY }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center font-serif"
-      >
-        <p className="text-[#cda873] tracking-[0.4em] text-sm uppercase mb-6 font-sans font-bold">
-          Cyberbots Presents
-        </p>
-        <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] whitespace-nowrap">
-          RED DEAD REDEMPTION II
-        </h1>
-        <p className="mt-6 text-xl tracking-widest text-white/60 max-w-xl uppercase font-sans">
-          Outlaws for life.
-        </p>
-      </motion.div>
-
-      {/* 30% Scroll */}
-      <motion.div
-        style={{ opacity: f1Opacity, x: f1X }}
-        className="absolute inset-y-0 left-0 flex flex-col justify-center px-6 md:px-12 w-full md:w-1/2"
-      >
-        <h2 className="text-4xl font-bold tracking-tight text-white/90">
-          The End of an Era
-        </h2>
-        <p className="mt-4 text-lg text-white/60">
-          America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed.
-        </p>
-      </motion.div>
-
-      {/* 60% Scroll */}
-      <motion.div
-        style={{ opacity: f2Opacity, x: f2X }}
-        className="absolute inset-y-0 right-0 flex flex-col justify-center text-right px-6 md:px-12 w-full md:w-1/2"
-      >
-        <h2 className="text-4xl font-bold tracking-tight text-white/90">
-          A Price on Your Head
-        </h2>
-        <p className="mt-4 text-lg text-white/60 ml-auto">
-          After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels...
-        </p>
-      </motion.div>
-
-      {/* 90% Scroll */}
-      <motion.div
-        style={{ opacity: ctaOpacity, y: ctaY }}
         className="absolute inset-0 flex flex-col items-center justify-center text-center"
       >
-        <h2 className="text-5xl font-bold tracking-tight text-white/90">
-          Play The Epic Saga
-        </h2>
-        <p className="mt-4 text-lg text-white/60 mb-8">
-          The critically acclaimed masterpiece is available now.
+        <p className="text-[#cda873] tracking-[0.5em] text-xs uppercase mb-6 font-sans font-bold">
+          Cyberbots Presents
         </p>
-        <button className="px-8 py-4 bg-[#8b0000] text-white font-sans font-bold tracking-wider uppercase hover:bg-[#a50000] transition-colors rounded-sm">
-          Play Now
-        </button>
+        <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] font-serif">
+          PRASANTH S
+        </h1>
+        <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
+        <p className="text-lg md:text-2xl tracking-[0.25em] text-white/70 uppercase font-sans font-light">
+          AI Engineer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Founder
+        </p>
+      </motion.div>
+
+      {/* === SECTION 1: 30% — Who I am === */}
+      <motion.div
+        style={{ opacity: s1Opacity, x: s1X }}
+        className="absolute inset-y-0 left-0 flex flex-col justify-center px-6 md:px-16 w-full md:w-[55%]"
+      >
+        <p className="text-[#cda873] tracking-[0.3em] text-xs uppercase mb-4 font-sans font-bold">
+          About Me
+        </p>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 font-serif">
+          I Build Things That Matter
+        </h2>
+        <p className="text-lg text-white/65 font-sans leading-relaxed">
+          Founder of <span className="text-[#cda873] font-semibold">Cyberbots</span> — a startup at the intersection of AI, mobile, and web. I engineer intelligent products: from real-time threat detection systems to cinematic digital experiences.
+        </p>
+      </motion.div>
+
+      {/* === SECTION 2: 60% — Stats === */}
+      <motion.div
+        style={{ opacity: s2Opacity, x: s2X }}
+        className="absolute inset-y-0 right-0 flex flex-col justify-center text-right px-6 md:px-16 w-full md:w-[55%]"
+      >
+        <p className="text-[#cda873] tracking-[0.3em] text-xs uppercase mb-4 font-sans font-bold">
+          The Numbers
+        </p>
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8 font-serif">
+          From Ideas to Products
+        </h2>
+        <div className="flex justify-end gap-8 md:gap-12">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col items-end">
+              <span className="text-4xl md:text-6xl font-black text-[#cda873] font-serif">{s.value}</span>
+              <span className="text-xs text-white/50 uppercase tracking-widest font-sans mt-1">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* === CTA: 90% === */}
+      <motion.div
+        style={{ opacity: ctaOpacity, y: ctaY }}
+        className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-auto"
+      >
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white font-serif mb-4">
+          Let&apos;s Build Something
+        </h2>
+        <p className="mt-2 text-lg text-white/60 font-sans mb-10">
+          Explore my work, skills, and the story behind Cyberbots.
+        </p>
+        <div className="flex gap-4 flex-wrap justify-center">
+          <Link
+            href="/world"
+            className="px-8 py-4 bg-[#cda873] text-black font-sans font-bold tracking-wider uppercase hover:bg-[#e5cc98] transition-all duration-300 hover:shadow-[0_0_20px_rgba(205,168,115,0.4)] hover:-translate-y-0.5"
+          >
+            View Projects
+          </Link>
+          <Link
+            href="/journal"
+            className="px-8 py-4 border border-white/30 text-white font-sans font-bold tracking-wider uppercase hover:border-white/70 hover:bg-white/5 transition-all duration-300"
+          >
+            Contact Me
+          </Link>
+        </div>
       </motion.div>
     </div>
   );
