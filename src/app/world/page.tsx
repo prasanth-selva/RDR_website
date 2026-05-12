@@ -6,75 +6,57 @@ import { useGameSounds } from "@/hooks/useGameSounds";
 
 const PROJECTS = [
   {
-    name: "Civic AIShield",
-    category: "AI / Cybersecurity",
-    description:
-      "CCTV monitoring system that detects threats on live video streams.",
-    stack: ["Python", "OpenCV", "Computer Vision", "React"],
-    status: "DEPLOYED",
-    statusColor: "text-[#cda873]",
-  },
-  {
-    name: "SOC Anomaly Dashboard",
+    name: "AI-Based Network Traffic Monitoring Dashboard",
     category: "Cybersecurity / ML",
     description:
-      "SOC dashboard with ML anomaly scoring and live alert triage.",
+      "Real-time SOC dashboard with ML anomaly scoring and threat triage.",
     stack: ["Python", "FastAPI", "React", "Scikit-learn"],
     status: "BUILT",
     statusColor: "text-[#cda873]",
   },
   {
-    name: "PII Masking Tool",
+    name: "Civic AIShield",
+    category: "AI / Computer Vision",
+    description:
+      "CCTV monitoring app that detects suspicious activity on live video streams.",
+    stack: ["Python", "OpenCV", "Computer Vision", "React"],
+    status: "BUILT",
+    statusColor: "text-[#cda873]",
+  },
+  {
+    name: "Personal Information Masking Tool",
     category: "Cybersecurity / AI",
     description:
-      "Web tool that detects and redacts PII from ID documents using EasyOCR.",
-    stack: ["Python", "EasyOCR", "FastAPI", "Web Tech"],
+      "Detects and redacts PII from ID documents using EasyOCR with secure upload/download.",
+    stack: ["Python", "EasyOCR", "Web Tech"],
     status: "BUILT",
     statusColor: "text-[#cda873]",
   },
   {
-    name: "Porsche 3D Showcase",
+    name: "Porsche 3D Animated Brand Showcase",
     category: "3D Web / WebGL",
     description:
-      "Scroll-driven 3D landing page with WebGL model rendering.",
-    stack: ["Three.js", "WebGL", "GSAP", "JavaScript"],
+      "Scroll-driven 3D landing page with cinematic camera transitions and WebGL rendering.",
+    stack: ["JavaScript", "Three.js", "WebGL", "GSAP"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
   },
   {
-    name: "BMW 3D Interactive",
+    name: "BMW 3D Interactive Experience",
     category: "3D Web / WebGL",
     description:
-      "WebGL shaders for lighting and reflections in the browser.",
-    stack: ["Three.js", "GLSL Shaders", "WebGL", "GSAP"],
+      "Custom GLSL shaders for lighting and reflections with optimized loading.",
+    stack: ["JavaScript", "Three.js", "WebGL", "GLSL"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
   },
   {
-    name: "Zenith & FusionX Sites",
+    name: "Zenith & FusionX Symposium Websites",
     category: "Web Development",
     description:
-      "Event websites for KGISL Institute of Technology. Live at zenith-kite.netlify.app and fusionxkitex.netlify.app.",
+      "Next.js sites for KGISL Institute of Technology. Live at zenith-kite.netlify.app and fusionxkitex.netlify.app.",
     stack: ["Next.js", "JavaScript", "HTML5", "CSS3"],
     status: "LIVE",
-    statusColor: "text-[#cda873]",
-  },
-  {
-    name: "RDR Portfolio Site",
-    category: "3D Web Experience",
-    description:
-      "This portfolio. 120 WebP frames, Framer Motion overlays, and Web Audio UI sounds.",
-    stack: ["Next.js", "Framer Motion", "WebP", "TypeScript"],
-    status: "LIVE",
-    statusColor: "text-[#cda873]",
-  },
-  {
-    name: "Streakly / LifeOS",
-    category: "Mobile App",
-    description:
-      "Habit tracking app with streaks, analytics, and calendar heatmaps.",
-    stack: ["Flutter", "Firebase", "Dart"],
-    status: "BUILT",
     statusColor: "text-[#cda873]",
   },
 ];
@@ -94,7 +76,7 @@ export default function ProjectsPage() {
           </h1>
           <div className="w-20 h-[2px] bg-[#cda873] mx-auto mb-6 opacity-70" />
           <p className="text-white/60 font-sans tracking-wide text-sm">
-            Shipped work across AI, security, web, and mobile.
+            Shipped work across security, ML, and 3D web.
           </p>
         </div>
 
@@ -102,7 +84,11 @@ export default function ProjectsPage() {
         <div className="mb-12 text-center">
           <p className="text-xs font-sans tracking-[0.3em] text-[#cda873] uppercase mb-4 font-bold">Cybersecurity focus</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {["Civic AIShield", "SOC Anomaly Dashboard", "PII Masking Tool"].map((item) => (
+            {[
+              "AI-Based Network Traffic Monitoring Dashboard",
+              "Civic AIShield",
+              "Personal Information Masking Tool",
+            ].map((item) => (
               <button
                 key={item}
                 type="button"

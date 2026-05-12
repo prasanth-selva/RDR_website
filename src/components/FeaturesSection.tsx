@@ -8,26 +8,26 @@ export default function FeaturesSection() {
 
   const proofs = [
     {
-      title: "RDR portfolio",
-      metric: "120 frames",
-      detail: "Hero sequence compressed to 26MB WebP.",
-      image: "/images/hero-webp/ezgif-frame-060.webp",
+      title: "Metazord role",
+      metric: "Oct 2025",
+      detail: "Cybersecurity Researcher and Full-Stack Developer (part-time).",
+      image: "/images/intro-scene.png",
     },
     {
       title: "Certifications",
-      metric: "8 verified",
-      detail: "Cisco + Google + professional certs.",
+      metric: "Google + Cisco",
+      detail: "Google Cybersecurity and Cisco Ethical Hacking.",
       image: "/images/certs/google.webp",
     },
     {
-      title: "CTF rank",
+      title: "CTF result",
       metric: "Top 50",
-      detail: "Malla Reddy Univ. CTF 2026.",
+      detail: "Malla Reddy University, Mar 2026.",
     },
     {
-      title: "Projects shipped",
-      metric: "8",
-      detail: "AI, security, web, and mobile builds.",
+      title: "Key projects",
+      metric: "6",
+      detail: "SOC dashboard, Civic AIShield, PII masking, Porsche 3D, BMW 3D, Zenith/FusionX.",
     },
   ];
 
