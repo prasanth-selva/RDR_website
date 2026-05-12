@@ -15,8 +15,7 @@ export default function Home() {
       <FeaturesSection />
 
       {/* Footer */}
-      <footer className="py-24 text-center border-t border-white/5 bg-[#050505] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none" />
+      <footer className="py-20 text-center border-t border-white/10 bg-[#0b0b0b]">
         <div className="relative z-10">
           <div className="w-12 h-12 bg-[#cda873] text-black font-black text-lg flex items-center justify-center mx-auto mb-6">
             CB

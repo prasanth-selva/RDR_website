@@ -9,7 +9,7 @@ const PROJECTS = [
     name: "Civic AIShield",
     category: "AI / Cybersecurity",
     description:
-      "AI-powered CCTV monitoring system using computer vision for real-time public safety threat detection. Scalable architecture supporting continuous low-latency inference on live video streams.",
+      "CCTV monitoring system that detects threats on live video streams.",
     stack: ["Python", "OpenCV", "Computer Vision", "React"],
     status: "DEPLOYED",
     statusColor: "text-[#cda873]",
@@ -18,7 +18,7 @@ const PROJECTS = [
     name: "SOC Anomaly Dashboard",
     category: "Cybersecurity / ML",
     description:
-      "Real-time SOC dashboard with custom ML anomaly-scoring engine. Monitors, visualises, and triages network threats — from raw packet ingestion through feature engineering to live alert generation.",
+      "SOC dashboard with ML anomaly scoring and live alert triage.",
     stack: ["Python", "FastAPI", "React", "Scikit-learn"],
     status: "BUILT",
     statusColor: "text-[#cda873]",
@@ -27,7 +27,7 @@ const PROJECTS = [
     name: "PII Masking Tool",
     category: "Cybersecurity / AI",
     description:
-      "High-accuracy web tool that detects and redacts personally identifiable information from ID documents using EasyOCR. Secure upload/download with zero server-side storage.",
+      "Web tool that detects and redacts PII from ID documents using EasyOCR.",
     stack: ["Python", "EasyOCR", "FastAPI", "Web Tech"],
     status: "BUILT",
     statusColor: "text-[#cda873]",
@@ -36,7 +36,7 @@ const PROJECTS = [
     name: "Porsche 3D Showcase",
     category: "3D Web / WebGL",
     description:
-      "Scroll-driven 3D landing page with cinematic camera transitions and real-time WebGL model rendering. Optimised to sustain 60 fps on desktop and mobile with compressed asset pipelines.",
+      "Scroll-driven 3D landing page with WebGL model rendering.",
     stack: ["Three.js", "WebGL", "GSAP", "JavaScript"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
@@ -45,7 +45,7 @@ const PROJECTS = [
     name: "BMW 3D Interactive",
     category: "3D Web / WebGL",
     description:
-      "Custom GLSL fragment and vertex shaders producing dramatic lighting and reflection effects entirely in-browser. Lazy loading and compressed assets for fast initial load without sacrificing quality.",
+      "WebGL shaders for lighting and reflections in the browser.",
     stack: ["Three.js", "GLSL Shaders", "WebGL", "GSAP"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
@@ -54,7 +54,7 @@ const PROJECTS = [
     name: "Zenith & FusionX Sites",
     category: "Web Development",
     description:
-      "Official inter-collegiate symposium websites for KGISL Institute of Technology. Both remain live: zenith-kite.netlify.app and fusionxkitex.netlify.app.",
+      "Event websites for KGISL Institute of Technology. Live at zenith-kite.netlify.app and fusionxkitex.netlify.app.",
     stack: ["Next.js", "JavaScript", "HTML5", "CSS3"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
@@ -63,7 +63,7 @@ const PROJECTS = [
     name: "RDR Portfolio Site",
     category: "3D Web Experience",
     description:
-      "This cinematic scroll-driven portfolio. 120 WebP animation frames (from 333MB PNG → 26MB), Framer Motion overlays, 3D tilt cards, and Web Audio API game sounds.",
+      "This portfolio. 120 WebP frames, Framer Motion overlays, and Web Audio UI sounds.",
     stack: ["Next.js", "Framer Motion", "WebP", "TypeScript"],
     status: "LIVE",
     statusColor: "text-[#cda873]",
@@ -72,7 +72,7 @@ const PROJECTS = [
     name: "Streakly / LifeOS",
     category: "Mobile App",
     description:
-      "AI-powered habit tracking super-app with streak management, multi-metric analytics, calendar heatmaps, and a swipeable home screen dashboard.",
+      "Habit tracking app with streaks, analytics, and calendar heatmaps.",
     stack: ["Flutter", "Firebase", "Dart"],
     status: "BUILT",
     statusColor: "text-[#cda873]",

@@ -132,9 +132,9 @@ export default function ScrollytellingCanvas() {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[600vh] w-full bg-[#050505]">
+    <div ref={containerRef} className="relative h-[600vh] w-full bg-[#0b0b0b]">
       {!loaded && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0b0b0b]">
           <div className="flex flex-col items-center gap-6">
             {/* Animated logo */}
             <div className="w-16 h-16 bg-[#cda873] text-black font-black text-2xl flex items-center justify-center animate-pulse">

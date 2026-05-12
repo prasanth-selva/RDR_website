@@ -23,9 +23,6 @@ export default function TiltCard({ children, className = "", onHoverStart, onCli
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
-  // Map mouse position to glare position
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["100%", "0%"]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["100%", "0%"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!ref.current) return;
@@ -69,13 +66,6 @@ export default function TiltCard({ children, className = "", onHoverStart, onCli
         {children}
       </div>
 
-      {/* Glare Effect */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 z-20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.4) 0%, transparent 60%)`,
-        }}
-      />
     </motion.div>
   );
 }
