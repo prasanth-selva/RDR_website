@@ -72,7 +72,7 @@ export default function BookIntro() {
               </div>
               <div>
                 <p className="text-sm font-semibold">Prasanth S</p>
-                <p className="text-xs text-white/60">AI · Cybersecurity · Web</p>
+                <p className="text-xs text-white/60">AI / Cybersecurity / Web</p>
               </div>
             </div>
           </div>
