@@ -21,9 +21,9 @@ export default function Home() {
           <div className="w-12 h-12 bg-[#cda873] text-black font-black text-lg flex items-center justify-center mx-auto mb-6">
             CB
           </div>
-          <h2 className="text-2xl font-serif text-white/40 mb-3 tracking-widest">CYBERBOTS</h2>
-          <p className="text-[#cda873]/60 tracking-[0.2em] text-xs font-sans uppercase mb-6">
-            Founded by Prasanth &nbsp;·&nbsp; Building the Future
+          <h2 className="text-2xl font-serif text-white/50 mb-3 tracking-widest">CYBERBOTS</h2>
+          <p className="text-[#cda873]/70 tracking-[0.2em] text-xs font-sans uppercase mb-6">
+            Founded by Prasanth
           </p>
           <p className="text-white/20 tracking-wider text-xs font-sans uppercase">
             &copy; {new Date().getFullYear()} Prasanth S. All rights reserved.
