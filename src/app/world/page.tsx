@@ -80,7 +80,7 @@ const PROJECTS = [
 ];
 
 export default function ProjectsPage() {
-  const { playHover, playSelect, playRevolver } = useGameSounds();
+  const { playHover, playSelect, playRevolver, playNotification, playPickup } = useGameSounds();
 
   return (
     <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
@@ -106,6 +106,23 @@ export default function ProjectsPage() {
           </p>
         </div>
 
+        {/* Cybersecurity focus */}
+        <div className="mb-12 text-center">
+          <p className="text-xs font-sans tracking-[0.4em] text-[#4ade80] uppercase mb-4 font-bold">Cybersecurity Focus</p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {["Civic AIShield", "SOC Anomaly Dashboard", "PII Masking Tool"].map((item) => (
+              <button
+                key={item}
+                type="button"
+                onMouseEnter={playHover}
+                className="text-[11px] font-sans uppercase tracking-widest px-3 py-1.5 border border-[#4ade80]/30 text-[#4ade80] bg-[#0b120b]"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 perspective-[1200px]">
           {PROJECTS.map((project, i) => (
@@ -117,8 +134,8 @@ export default function ProjectsPage() {
               transition={{ duration: 0.6, delay: i * 0.07 }}
             >
               <TiltCard
-                onHoverStart={() => { playHover(); if (i % 3 === 0) playRevolver(); }}
-                onClick={playSelect}
+                onHoverStart={() => { playHover(); if (i % 3 === 0) playRevolver(); if (i % 4 === 0) playNotification(); }}
+                onClick={() => { playSelect(); if (i % 2 === 0) playPickup(); }}
                 className="h-full min-h-[320px] bg-[#0d0d0d] border-white/10 p-6 flex flex-col group"
               >
                 {/* Status badge */}
