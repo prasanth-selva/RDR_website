@@ -8,8 +8,7 @@ const JOURNEY_MILESTONES = [
     year: "2024",
     title: "B.E. CSE (Cybersecurity)",
     description:
-      "KGISL Institute of Technology. 2024-2028 (expected).
-      Specialization in cybersecurity.",
+      "KGISL Institute of Technology. 2024-2028 (expected). Specialization in cybersecurity.",
     tag: "Education",
   },
   {
