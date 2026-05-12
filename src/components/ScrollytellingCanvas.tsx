@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, useMotionValueEvent, motion } from "framer-motion";
+import { useScroll, useTransform, useMotionValueEvent, useSpring, motion } from "framer-motion";
 import Link from "next/link";
 import { useGameSounds } from "@/hooks/useGameSounds";
 
@@ -24,7 +24,13 @@ export default function ScrollytellingCanvas() {
     offset: ["start start", "end end"],
   });
 
-  const frameIndex = useTransform(scrollYProgress, [0, 1], [1, TOTAL_FRAMES]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 60,
+    damping: 20,
+    mass: 1,
+  });
+
+  const frameIndex = useTransform(smoothProgress, [0, 1], [1, TOTAL_FRAMES]);
 
   // Preload images in parallel batches
   useEffect(() => {
@@ -126,7 +132,7 @@ export default function ScrollytellingCanvas() {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[400vh] w-full bg-[#050505]">
+    <div ref={containerRef} className="relative h-[600vh] w-full bg-[#050505]">
       {!loaded && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505]">
           <div className="flex flex-col items-center gap-6">
@@ -157,7 +163,7 @@ export default function ScrollytellingCanvas() {
 
         {/* Overlay text sections */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-center">
-          <OverlayText scrollYProgress={scrollYProgress} />
+          <OverlayText scrollYProgress={smoothProgress} />
         </div>
       </div>
     </div>
