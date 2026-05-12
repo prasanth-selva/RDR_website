@@ -8,42 +8,42 @@ const JOURNEY_MILESTONES = [
     year: "2022",
     title: "The Spark",
     description:
-      "Started with Python and fell in love with code. Began building AI experiments, dissecting computer vision algorithms, and understanding the raw power of machine learning on real datasets.",
+      "Started with Python and built early computer vision and ML experiments.",
     tag: "Origin Story",
   },
   {
     year: "2023",
     title: "Founded Cyberbots",
     description:
-      "Established Cyberbots — a startup at the intersection of AI, mobile, and web. Began taking on real-world projects for clients, institutions, and research labs. The mission: build things that actually work.",
+      "Founded Cyberbots and started shipping work for clients and research labs.",
     tag: "Entrepreneurship",
   },
   {
     year: "2023",
     title: "AI & Computer Vision",
     description:
-      "Built SafeWatch — a real-time CCTV threat detection system using YOLO and OpenCV, capable of identifying fights, falls, and harassment. Integrated the Civic AI Shield pipeline with Streamlit dashboards and alert systems.",
+      "Built SafeWatch: a CCTV threat detection system with YOLO/OpenCV and alert dashboards.",
     tag: "AI / ML",
   },
   {
     year: "2024",
     title: "Going Mobile",
     description:
-      "Expanded deep into Flutter mobile development. Delivered Seshadri Lab App for a university research lab, Streakly habit tracker, and HABIT Monitor — all to real users.",
+      "Built Flutter apps: Seshadri Lab App, Streakly, and HABIT Monitor.",
     tag: "Mobile Dev",
   },
   {
     year: "2025",
     title: "Web & Cinematic Experiences",
     description:
-      "Built premium web experiences: the Koenigsegg hypercar site, an enterprise portal, a 3D premium agency site, and this cinematic scroll-driven portfolio. Earned certifications from Google and CISCP along the way.",
+      "Built web projects: the Koenigsegg site, an enterprise portal, a 3D agency site, and this portfolio.",
     tag: "Web / Design",
   },
   {
     year: "Now",
     title: "Building the Future",
     description:
-      "Open to full-time engineering roles, freelance collaboration, and startup partnerships. Currently deepening expertise in AI at the edge, multimodal systems, and cross-platform product engineering.",
+      "Open to full-time roles and freelance work. Focused on edge AI and security tooling.",
     tag: "Open to Work",
   },
 ];
@@ -52,18 +52,17 @@ export default function JourneyPage() {
   const { playHover, playSpurs } = useGameSounds();
 
   return (
-    <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
-      <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-10 pointer-events-none mix-blend-overlay z-0" />
+    <main className="min-h-screen bg-[#0b0b0b] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="text-center mb-24">
-          <p className="text-xs font-sans tracking-[0.4em] text-[#cda873] uppercase mb-4 font-bold">My Story</p>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg mb-4">
+          <p className="text-xs font-sans tracking-[0.3em] text-[#cda873] uppercase mb-4 font-bold">Story</p>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
             THE JOURNEY
           </h1>
           <div className="w-16 h-[2px] bg-[#cda873] mx-auto mb-4 opacity-60" />
-          <p className="text-xl tracking-[0.2em] uppercase text-white/50 font-sans text-sm">
-            Building with Purpose
+          <p className="text-sm tracking-[0.2em] uppercase text-white/60 font-sans">
+            Clear milestones
           </p>
         </div>
 
@@ -80,11 +79,11 @@ export default function JourneyPage() {
               onMouseEnter={() => { playHover(); if (index % 2 === 0) playSpurs(); }}
             >
               {/* Timeline dot */}
-              <div className="absolute -left-[11px] top-4 w-5 h-5 bg-[#050505] border-4 border-[#cda873] rounded-full shadow-[0_0_12px_rgba(205,168,115,0.5)]" />
+              <div className="absolute -left-[11px] top-4 w-5 h-5 bg-[#0b0b0b] border-4 border-[#cda873] rounded-full" />
 
-              <div className="group relative bg-[#0a0a0a] border border-white/8 p-8 hover:border-[#cda873]/30 transition-colors duration-500 overflow-hidden">
+              <div className="group relative bg-[#111] border border-white/10 p-8 hover:border-[#cda873]/40 transition-colors duration-200">
                 {/* Hover glow */}
-                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cda873] transition-all duration-500 group-hover:w-full" />
+                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cda873] transition-all duration-200 group-hover:w-full" />
 
                 <div className="flex items-center gap-4 mb-3">
                   <span className="text-[#cda873] font-black text-2xl font-sans">{milestone.year}</span>
