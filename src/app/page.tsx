@@ -1,12 +1,16 @@
 import ScrollytellingCanvas from "@/components/ScrollytellingCanvas";
 import TechDomainSelector from "@/components/CharacterSelection";
 import FeaturesSection from "@/components/FeaturesSection";
+import BookIntro from "@/components/BookIntro";
 
 export default function Home() {
   return (
     <main className="bg-[#050505] min-h-screen text-white">
       {/* Cinematic scrollytelling hero */}
       <ScrollytellingCanvas />
+
+      {/* Intro book section */}
+      <BookIntro />
 
       {/* Tech domain interactive selector */}
       <TechDomainSelector />
