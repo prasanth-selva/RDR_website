@@ -13,19 +13,19 @@ type Page = {
 
 const PAGES: Page[] = [
   {
-    title: "Intro",
-    body: "I build AI and security tools, plus fast web and mobile apps. Founder of Cyberbots.",
-    highlights: ["CTF top 50", "8 projects", "8 certificates"],
+    title: "Summary",
+    body: "Cybersecurity analyst and full-stack developer focused on ML security systems and 3D web. Top 50 CTF at Malla Reddy University (Mar 2026).",
+    highlights: ["Google Cybersecurity", "Cisco Ethical Hacking", "Top 50 CTF 2026"],
   },
   {
-    title: "Focus",
-    body: "Threat detection, SOC dashboards, and privacy tools. I care about clear UX and real results.",
-    highlights: ["CCTV threat detection", "PII redaction", "SOC anomaly scoring"],
+    title: "Experience",
+    body: "Cybersecurity Researcher and Full-Stack Developer at Metazord (Oct 2025 - Present, part-time). Built ML anomaly detection, SOC dashboards, and FastAPI services.",
+    highlights: ["ML anomaly detection", "SOC dashboards", "FastAPI microservices"],
   },
   {
-    title: "Now",
-    body: "Open to full-time roles and freelance work. If the project is clear, I move fast.",
-    highlights: ["AI", "Cybersecurity", "Next.js"],
+    title: "Education",
+    body: "B.E. CSE (Cybersecurity), KGISL Institute of Technology (2024-2028 expected). Association President, Cybersecurity Department.",
+    highlights: ["CTF events", "Workshops", "Student mentorship"],
   },
 ];
 

@@ -203,9 +203,9 @@ function OverlayText({
   const ctaY = useTransform(scrollYProgress, [0.83, 1], [60, 0]);
 
   const stats = [
-    { value: "8", label: "Projects" },
-    { value: "8", label: "Certificates" },
-    { value: "Top 50", label: "CTF Rank" },
+    { value: "Oct 2025", label: "Metazord" },
+    { value: "Top 50", label: "CTF 2026" },
+    { value: "2028", label: "Grad (expected)" },
   ];
 
   return (
@@ -226,7 +226,7 @@ function OverlayText({
         </h1>
         <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
         <p className="text-base md:text-lg tracking-wide text-white/80 font-sans">
-          AI engineer, cybersecurity, and web developer.
+          Cybersecurity analyst / ML security systems / 3D web.
         </p>
       </motion.div>
 
@@ -239,10 +239,10 @@ function OverlayText({
           About
         </p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 font-serif">
-          I build AI and security tools.
+          Cybersecurity analyst and full-stack developer.
         </h2>
         <p className="text-lg text-white/70 font-sans leading-relaxed">
-          Founder of Cyberbots. I build threat detection tools, SOC dashboards, and fast web apps for real use.
+          Top 50 CTF at Malla Reddy University (Mar 2026). Google Cybersecurity and Cisco Ethical Hacking certified. I build ML security systems and 3D web projects.
         </p>
       </motion.div>
 
@@ -257,10 +257,10 @@ function OverlayText({
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-8 font-serif">
           Work to date
         </h2>
-        <div className="flex justify-end gap-8 md:gap-12">
+        <div className="flex flex-col sm:flex-row sm:justify-end gap-6 md:gap-12">
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col items-end">
-              <span className="text-4xl md:text-6xl font-black text-[#cda873] font-serif">{s.value}</span>
+            <div key={s.label} className="flex flex-col items-start sm:items-end">
+              <span className="text-3xl md:text-6xl font-black text-[#cda873] font-serif">{s.value}</span>
               <span className="text-xs text-white/50 uppercase tracking-widest font-sans mt-1">{s.label}</span>
             </div>
           ))}
