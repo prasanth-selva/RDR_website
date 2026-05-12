@@ -163,14 +163,29 @@ export default function ScrollytellingCanvas() {
 
         {/* Overlay text sections */}
         <div className="absolute inset-0 pointer-events-none z-10 flex flex-col justify-center">
-          <OverlayText scrollYProgress={smoothProgress} />
+          <OverlayText
+            scrollYProgress={smoothProgress}
+            ctaHover={playHover}
+            ctaPrimaryClick={() => { playSelect(); playPickup(); }}
+            ctaSecondaryClick={playSelect}
+          />
         </div>
       </div>
     </div>
   );
 }
 
-function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
+function OverlayText({
+  scrollYProgress,
+  ctaHover,
+  ctaPrimaryClick,
+  ctaSecondaryClick,
+}: {
+  scrollYProgress: any;
+  ctaHover: () => void;
+  ctaPrimaryClick: () => void;
+  ctaSecondaryClick: () => void;
+}) {
   // 0–20%: Hero
   const heroOpacity = useTransform(scrollYProgress, [0, 0.05, 0.18, 0.22], [0, 1, 1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.22], [0, -60]);
@@ -266,16 +281,16 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         <div className="flex gap-4 flex-wrap justify-center">
           <Link
             href="/world"
-            onMouseEnter={playHover}
-            onClick={() => { playSelect(); playPickup(); }}
+            onMouseEnter={ctaHover}
+            onClick={ctaPrimaryClick}
             className="px-8 py-3 bg-[#cda873] text-black font-sans font-bold tracking-wider uppercase transition-all duration-200 hover:opacity-90"
           >
             Projects
           </Link>
           <Link
             href="/journal"
-            onMouseEnter={playHover}
-            onClick={playSelect}
+            onMouseEnter={ctaHover}
+            onClick={ctaSecondaryClick}
             className="px-8 py-3 border border-white/30 text-white font-sans font-bold tracking-wider uppercase transition-all duration-200 hover:border-white/60"
           >
             Contact
