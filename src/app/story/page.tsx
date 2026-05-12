@@ -5,46 +5,47 @@ import { useGameSounds } from "@/hooks/useGameSounds";
 
 const JOURNEY_MILESTONES = [
   {
-    year: "2022",
-    title: "The Spark",
-    description:
-      "Started with Python and built early computer vision and ML experiments.",
-    tag: "Origin Story",
-  },
-  {
-    year: "2023",
-    title: "Founded Cyberbots",
-    description:
-      "Founded Cyberbots and started shipping work for clients and research labs.",
-    tag: "Entrepreneurship",
-  },
-  {
-    year: "2023",
-    title: "AI & Computer Vision",
-    description:
-      "Built SafeWatch: a CCTV threat detection system with YOLO/OpenCV and alert dashboards.",
-    tag: "AI / ML",
-  },
-  {
     year: "2024",
-    title: "Going Mobile",
+    title: "B.E. CSE (Cybersecurity)",
     description:
-      "Built Flutter apps: Seshadri Lab App, Streakly, and HABIT Monitor.",
-    tag: "Mobile Dev",
+      "KGISL Institute of Technology. 2024-2028 (expected).
+      Specialization in cybersecurity.",
+    tag: "Education",
   },
   {
-    year: "2025",
-    title: "Web & Cinematic Experiences",
+    year: "2024-2025",
+    title: "Zenith & FusionX",
     description:
-      "Built web projects: the Koenigsegg site, an enterprise portal, a 3D agency site, and this portfolio.",
-    tag: "Web / Design",
+      "Built symposium websites for KGISL Institute of Technology using Next.js. Both remain live.",
+    tag: "Web",
   },
   {
-    year: "Now",
-    title: "Building the Future",
+    year: "Jan 2025",
+    title: "SOC Dashboard",
     description:
-      "Open to full-time roles and freelance work. Focused on edge AI and security tooling.",
-    tag: "Open to Work",
+      "AI-based network traffic monitoring dashboard with ML anomaly scoring and threat triage.",
+    tag: "Cybersecurity",
+  },
+  {
+    year: "Jan 2025",
+    title: "Civic AIShield + PII Masking",
+    description:
+      "CCTV threat detection for public safety and a PII masking tool using EasyOCR.",
+    tag: "AI / Security",
+  },
+  {
+    year: "Oct 2025",
+    title: "Metazord",
+    description:
+      "Cybersecurity Researcher and Full-Stack Developer. Built ML pipelines, SOC dashboards, and FastAPI services.",
+    tag: "Work",
+  },
+  {
+    year: "Mar 2026",
+    title: "Top 50 CTF",
+    description:
+      "Top 50 nationally at Malla Reddy University CTF. Participated in Breach Point 24-hour CTF.",
+    tag: "Achievements",
   },
 ];
 
