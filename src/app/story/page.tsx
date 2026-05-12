@@ -29,14 +29,14 @@ const JOURNEY_MILESTONES = [
     year: "2024",
     title: "Going Mobile",
     description:
-      "Expanded deep into Flutter mobile development. Delivered Mudra (print ordering platform with Razorpay payments), Seshadri Lab App for a university research lab, Streakly habit tracker, and HABIT Monitor — all to real users.",
+      "Expanded deep into Flutter mobile development. Delivered Seshadri Lab App for a university research lab, Streakly habit tracker, and HABIT Monitor — all to real users.",
     tag: "Mobile Dev",
   },
   {
     year: "2025",
     title: "Web & Cinematic Experiences",
     description:
-      "Built premium web experiences: the Koenigsegg hypercar site, HENNGE enterprise portal, a 3D premium agency site, and this cinematic scroll-driven portfolio. Earned certifications from Google and CISCP along the way.",
+      "Built premium web experiences: the Koenigsegg hypercar site, an enterprise portal, a 3D premium agency site, and this cinematic scroll-driven portfolio. Earned certifications from Google and CISCP along the way.",
     tag: "Web / Design",
   },
   {
@@ -49,7 +49,7 @@ const JOURNEY_MILESTONES = [
 ];
 
 export default function JourneyPage() {
-  const { playHover } = useGameSounds();
+  const { playHover, playSpurs } = useGameSounds();
 
   return (
     <main className="min-h-screen bg-[#050505] text-white pt-32 pb-24 px-6 lg:px-12 relative font-serif">
@@ -77,7 +77,7 @@ export default function JourneyPage() {
               viewport={{ once: true, margin: "-120px" }}
               transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
               className="relative pl-8 md:pl-16"
-              onMouseEnter={playHover}
+              onMouseEnter={() => { playHover(); if (index % 2 === 0) playSpurs(); }}
             >
               {/* Timeline dot */}
               <div className="absolute -left-[11px] top-4 w-5 h-5 bg-[#050505] border-4 border-[#cda873] rounded-full shadow-[0_0_12px_rgba(205,168,115,0.5)]" />

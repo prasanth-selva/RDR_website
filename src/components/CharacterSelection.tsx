@@ -15,11 +15,19 @@ const TECH_DOMAINS = [
     stats: { proficiency: 90, projects: 80, experience: 78 },
   },
   {
+    id: "cyber",
+    name: "Cybersecurity",
+    role: "SOC · SIEM · Threat Hunting",
+    description:
+      "Defensive security from SOC workflows to anomaly detection and incident triage. Building tools that surface threats early and reduce noise.",
+    stats: { proficiency: 88, projects: 82, experience: 76 },
+  },
+  {
     id: "mobile",
     name: "Mobile Development",
     role: "Flutter · Dart · Firebase · Supabase",
     description:
-      "Cross-platform apps that feel native. From print-ordering platforms to university research lab tools — built for real users, deployed in production.",
+      "Cross-platform apps that feel native. From university research lab tools to habit tracking platforms — built for real users, deployed in production.",
     stats: { proficiency: 87, projects: 95, experience: 72 },
   },
   {
@@ -35,7 +43,7 @@ const TECH_DOMAINS = [
 export default function TechDomainSelector() {
   const [selected, setSelected] = useState(TECH_DOMAINS[0]);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const { playHover, playSelect } = useGameSounds();
+  const { playHover, playSelect, playPickup } = useGameSounds();
 
   const handleHover = (id: string) => {
     if (hoveredId !== id) {
@@ -150,6 +158,8 @@ export default function TechDomainSelector() {
             <div className="mt-10 pt-6 border-t border-white/10 flex justify-end">
               <Link
                 href="/world"
+                onMouseEnter={playHover}
+                onClick={() => { playSelect(); playPickup(); }}
                 className="px-8 py-3 bg-[#cda873] text-black font-sans font-bold tracking-[0.15em] uppercase transition-all hover:bg-[#e5cc98] hover:shadow-[0_0_15px_rgba(205,168,115,0.3)] hover:-translate-y-0.5 inline-block"
               >
                 View Projects →

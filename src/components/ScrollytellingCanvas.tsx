@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, useMotionValueEvent, motion } from "framer-motion";
 import Link from "next/link";
+import { useGameSounds } from "@/hooks/useGameSounds";
 
 const TOTAL_FRAMES = 120;
 
@@ -15,6 +16,8 @@ export default function ScrollytellingCanvas() {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const sectionSoundRef = useRef({ hero: false, about: false, stats: false, cta: false });
+  const { playDrum, playNotification, playPickup, playHover, playSelect, playWhistle } = useGameSounds();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -103,6 +106,25 @@ export default function ScrollytellingCanvas() {
     }
   });
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!sectionSoundRef.current.hero && latest >= 0.02) {
+      sectionSoundRef.current.hero = true;
+      playDrum();
+    }
+    if (!sectionSoundRef.current.about && latest >= 0.3) {
+      sectionSoundRef.current.about = true;
+      playWhistle();
+    }
+    if (!sectionSoundRef.current.stats && latest >= 0.58) {
+      sectionSoundRef.current.stats = true;
+      playNotification();
+    }
+    if (!sectionSoundRef.current.cta && latest >= 0.85) {
+      sectionSoundRef.current.cta = true;
+      playPickup();
+    }
+  });
+
   return (
     <div ref={containerRef} className="relative h-[400vh] w-full bg-[#050505]">
       {!loaded && (
@@ -188,7 +210,13 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
           PRASANTH S
         </h1>
         <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
-        <p className="text-lg md:text-2xl tracking-[0.25em] text-white/70 uppercase font-sans font-light">
+        <p
+          className="text-lg md:text-2xl tracking-[0.25em] text-white/70 uppercase font-sans font-light"
+          style={{
+            WebkitTextStroke: "1px rgba(205,168,115,0.45)",
+            textShadow: "0 0 25px rgba(205,168,115,0.35), 0 2px 6px rgba(0,0,0,0.85)",
+          }}
+        >
           AI Engineer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Founder
         </p>
       </motion.div>
@@ -244,12 +272,16 @@ function OverlayText({ scrollYProgress }: { scrollYProgress: any }) {
         <div className="flex gap-4 flex-wrap justify-center">
           <Link
             href="/world"
+            onMouseEnter={playHover}
+            onClick={() => { playSelect(); playPickup(); }}
             className="px-8 py-4 bg-[#cda873] text-black font-sans font-bold tracking-wider uppercase hover:bg-[#e5cc98] transition-all duration-300 hover:shadow-[0_0_20px_rgba(205,168,115,0.4)] hover:-translate-y-0.5"
           >
             View Projects
           </Link>
           <Link
             href="/journal"
+            onMouseEnter={playHover}
+            onClick={playSelect}
             className="px-8 py-4 border border-white/30 text-white font-sans font-bold tracking-wider uppercase hover:border-white/70 hover:bg-white/5 transition-all duration-300"
           >
             Contact Me

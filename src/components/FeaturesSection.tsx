@@ -15,6 +15,13 @@ export default function FeaturesSection() {
       image: "https://www.transparenttextures.com/patterns/black-scales.png",
     },
     {
+      title: "Cybersecurity",
+      description:
+        "SOC workflows, anomaly detection, and PII redaction pipelines that surface real threats and cut alert noise.",
+      icon: "🛡️",
+      image: "https://www.transparenttextures.com/patterns/black-felt.png",
+    },
+    {
       title: "Mobile Apps",
       description:
         "Flutter-powered cross-platform apps deployed on iOS & Android. Designed for real users with clean UX, modern backends, and payment integrations.",
@@ -41,7 +48,7 @@ export default function FeaturesSection() {
           <div className="w-24 h-[2px] bg-[#cda873] mx-auto mt-8 opacity-60" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 perspective-[1000px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 perspective-[1000px]">
           {features.map((feature, i) => (
             <motion.div
               key={i}
