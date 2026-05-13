@@ -49,8 +49,8 @@ export default function RootLayout({
         <div className="scanlines" />
         <div className="noise-overlay" />
 
+        <CustomCursor />
         <SiteBootSequence>
-          <CustomCursor />
           <GameHUD />
           <Navigation />
           {children}
