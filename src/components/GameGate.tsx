@@ -6,11 +6,13 @@ import { useGameSounds } from "@/hooks/useGameSounds";
 
 export default function GameGate({ onEnter }: { onEnter: () => void }) {
   const [isExiting, setIsExiting] = useState(false);
-  const { playDrum, playRevolver } = useGameSounds();
+  const { playDrum, playRevolver, playWelcomeVoice } = useGameSounds();
 
   const handleEnter = () => {
     // Initial user interaction satisfies browser audio policies
     playRevolver();
+    playWelcomeVoice();
+    
     setTimeout(() => {
         playDrum();
     }, 400);

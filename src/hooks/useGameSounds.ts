@@ -253,6 +253,31 @@ export function useGameSounds() {
     });
   }, []);
 
+  // ── Bold Welcome Voice ───────────────────────────────────────────
+  const playWelcomeVoice = useCallback(() => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+    
+    const speak = () => {
+      const msg = new SpeechSynthesisUtterance("Welcome to Cyberbots Studios.");
+      const voices = window.speechSynthesis.getVoices();
+      // Look for a deep/male voice
+      const deepVoice = voices.find(v => v.name.includes("UK English Male") || v.name.includes("Google UK English Male") || v.name.includes("Male"));
+      if (deepVoice) {
+        msg.voice = deepVoice;
+      }
+      msg.pitch = 0.5; // Bold and deep
+      msg.rate = 0.85;
+      msg.volume = 1;
+      window.speechSynthesis.speak(msg);
+    };
+
+    if (window.speechSynthesis.getVoices().length === 0) {
+      window.speechSynthesis.onvoiceschanged = speak;
+    } else {
+      speak();
+    }
+  }, []);
+
   return {
     playHover,
     playSelect,
@@ -265,5 +290,6 @@ export function useGameSounds() {
     playNotification,
     playPickup,
     playGallop,
+    playWelcomeVoice,
   };
 }
