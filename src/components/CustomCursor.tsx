@@ -38,30 +38,36 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <>
-      <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-[#cda873] rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
-        animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
-          scale: isHovering ? 0 : 1,
-        }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference hidden md:flex items-center justify-center w-6 h-6"
+      animate={{
+        x: mousePosition.x - 12,
+        y: mousePosition.y - 12,
+        rotate: isHovering ? 45 : 0,
+        scale: isHovering ? 1.2 : 1,
+      }}
+      transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
+    >
+      {/* Center dot */}
+      <div className={`w-1 h-1 rounded-full transition-colors ${isHovering ? "bg-[#ff4444]" : "bg-[#cda873]"}`} />
+
+      {/* Crosshair lines */}
+      <motion.div 
+        className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1.5px] h-2 transition-colors ${isHovering ? "bg-[#ff4444]" : "bg-[#cda873]"}`}
+        animate={{ y: isHovering ? -2 : 0 }}
       />
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-[#cda873]/50 rounded-full pointer-events-none z-[9998] mix-blend-difference flex items-center justify-center hidden md:flex"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? "rgba(205, 168, 115, 0.1)" : "transparent",
-        }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
-      >
-         {isHovering && (
-             <div className="w-1 h-1 bg-[#cda873] rounded-full" />
-         )}
-      </motion.div>
-    </>
+      <motion.div 
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[1.5px] h-2 transition-colors ${isHovering ? "bg-[#ff4444]" : "bg-[#cda873]"}`}
+        animate={{ y: isHovering ? 2 : 0 }}
+      />
+      <motion.div 
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-2 h-[1.5px] transition-colors ${isHovering ? "bg-[#ff4444]" : "bg-[#cda873]"}`}
+        animate={{ x: isHovering ? -2 : 0 }}
+      />
+      <motion.div 
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-[1.5px] transition-colors ${isHovering ? "bg-[#ff4444]" : "bg-[#cda873]"}`}
+        animate={{ x: isHovering ? 2 : 0 }}
+      />
+    </motion.div>
   );
 }
