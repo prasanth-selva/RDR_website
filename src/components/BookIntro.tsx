@@ -59,7 +59,7 @@ export default function BookIntro() {
             <div className="text-xs uppercase tracking-widest text-white/50">Profile</div>
             <div className="relative w-full h-64 md:h-80 bg-[#0d0d0d] border border-white/10">
               <Image
-                src="/images/intro-scene.png"
+                src="/images/intro.jpeg"
                 alt="Intro visual"
                 fill
                 className="object-cover object-[50%_15%]"
