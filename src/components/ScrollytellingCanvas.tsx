@@ -60,10 +60,15 @@ export default function ScrollytellingCanvas() {
         }
         const batchImages = await Promise.all(promises);
         loadedImages.push(...batchImages);
+        
+        // Update images state progressively
+        setImages([...loadedImages]);
+        
+        // Show the canvas as soon as the first batch is loaded
+        if (i === 1) {
+          setLoaded(true);
+        }
       }
-
-      setImages(loadedImages);
-      setLoaded(true);
     };
 
     loadImages();
@@ -222,7 +227,7 @@ function OverlayText({
         <h1
           className="text-5xl md:text-7xl font-black tracking-tight font-serif text-white"
         >
-          PRASANTH S
+          PRASANTH FROM CYBERBOTS
         </h1>
         <div className="w-24 h-[2px] bg-[#cda873] mx-auto my-6 opacity-70" />
         <p className="text-base md:text-lg tracking-wide text-white/80 font-sans">
