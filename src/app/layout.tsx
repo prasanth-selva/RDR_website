@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import Navigation from "@/components/Navigation";
+import SiteBootSequence from "@/components/SiteBootSequence";
+import GameHUD from "@/components/GameHUD";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -41,8 +44,17 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pt-[72px]">
-        <Navigation />
-        {children}
+        {/* Cinematic Overlays */}
+        <div className="cinematic-vignette" />
+        <div className="scanlines" />
+        <div className="noise-overlay" />
+
+        <SiteBootSequence>
+          <CustomCursor />
+          <GameHUD />
+          <Navigation />
+          {children}
+        </SiteBootSequence>
       </body>
     </html>
   );
