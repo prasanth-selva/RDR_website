@@ -35,7 +35,7 @@ const TECH_DOMAINS = [
 export default function TechDomainSelector() {
   const [selected, setSelected] = useState(TECH_DOMAINS[0]);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const { playHover, playSelect, playPickup } = useGameSounds();
+  const { playHover, playSelect, playPickup, playReload } = useGameSounds();
 
   const handleHover = (id: string) => {
     if (hoveredId !== id) {
@@ -47,7 +47,7 @@ export default function TechDomainSelector() {
   const handleSelect = (domain: typeof TECH_DOMAINS[0]) => {
     if (selected.id !== domain.id) {
       setSelected(domain);
-      playSelect();
+      playReload();
     }
   };
 
