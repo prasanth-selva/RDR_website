@@ -5,45 +5,45 @@ import { useGameSounds } from "@/hooks/useGameSounds";
 
 const JOURNEY_MILESTONES = [
   {
-    year: "2024",
+    year: "Jan 2024",
     title: "B.E. CSE (Cybersecurity)",
     description:
-      "KGISL Institute of Technology. 2024-2028 (expected). Specialization in cybersecurity.",
+      "KGISL Institute of Technology. Specialization in cybersecurity. Elected Association President.",
     tag: "Education",
   },
   {
     year: "2024-2025",
     title: "Zenith & FusionX",
     description:
-      "Built symposium websites for KGISL Institute of Technology using Next.js. Both remain live.",
-    tag: "Web",
+      "Designed and launched official inter-collegiate symposium websites for KGISL using Next.js.",
+    tag: "Web Engineering",
   },
   {
     year: "Jan 2025",
-    title: "SOC Dashboard",
+    title: "SOC Dashboard & AIShield",
     description:
-      "AI-based network traffic monitoring dashboard with ML anomaly scoring and threat triage.",
-    tag: "Cybersecurity",
-  },
-  {
-    year: "Jan 2025",
-    title: "Civic AIShield + PII Masking",
-    description:
-      "CCTV threat detection for public safety and a PII masking tool using EasyOCR.",
+      "Architected an AI-based network traffic SOC dashboard and Civic AIShield CCTV threat detection system.",
     tag: "AI / Security",
   },
   {
-    year: "Oct 2025",
-    title: "Metazord",
+    year: "Feb 2025",
+    title: "Porsche & BMW 3D Showcases",
     description:
-      "Cybersecurity Researcher and Full-Stack Developer. Built ML pipelines, SOC dashboards, and FastAPI services.",
-    tag: "Work",
+      "Engineered high-performance scroll-driven 3D landing pages with custom GLSL shaders and real-time WebGL rendering.",
+    tag: "3D Graphics",
+  },
+  {
+    year: "Oct 2025",
+    title: "Metazord — Cyber Researcher",
+    description:
+      "Engineered ML-based anomaly detection pipelines and deployed full-stack internal SOC tools.",
+    tag: "Work Experience",
   },
   {
     year: "Mar 2026",
-    title: "Top 50 CTF",
+    title: "Top 50 Nationally CTF",
     description:
-      "Top 50 nationally at Malla Reddy University CTF. Participated in Breach Point 24-hour CTF.",
+      "Top 50 nationally at Malla Reddy University CTF. Participated in Breach Point 24-hour CTF solving web and crypto challenges.",
     tag: "Achievements",
   },
 ];

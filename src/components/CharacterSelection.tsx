@@ -7,28 +7,28 @@ import Link from "next/link";
 
 const TECH_DOMAINS = [
   {
+    id: "cyber",
+    name: "Cybersecurity & SOC",
+    role: "Analyst · Threat Hunting · ML-Powered Security",
+    description:
+      "Specializing in SOC workflows, anomaly detection pipelines, and incident triage. Nationally ranked Top 50 CTF competitor with expertise in reducing false positives via AI analytics.",
+    stats: { proficiency: 92, projects: 88, experience: 85 },
+  },
+  {
+    id: "web3d",
+    name: "3D & Web Engineering",
+    role: "Three.js · WebGL · Next.js · React",
+    description:
+      "Engineering immersive 3D web experiences using custom GLSL shaders and GSAP. Architected high-performance landing pages for Porsche and BMW showcases.",
+    stats: { proficiency: 90, projects: 95, experience: 82 },
+  },
+  {
     id: "ai",
     name: "AI & Machine Learning",
-    role: "Python · OpenCV · YOLO · Streamlit",
+    role: "Python · FastAPI · OpenCV · Scikit-learn",
     description:
-      "Computer vision and ML tools for detection, analysis, and automation.",
-    stats: { proficiency: 90, projects: 80, experience: 78 },
-  },
-  {
-    id: "cyber",
-    name: "Cybersecurity",
-    role: "SOC · SIEM · Threat Hunting",
-    description:
-      "SOC workflows, anomaly detection, and incident triage tooling.",
-    stats: { proficiency: 88, projects: 82, experience: 76 },
-  },
-  {
-    id: "web",
-    name: "Web Development",
-    role: "Next.js · React · TypeScript · Framer Motion",
-    description:
-      "Fast, clean web apps and portfolios built with Next.js.",
-    stats: { proficiency: 88, projects: 85, experience: 75 },
+      "Developing ML-based anomaly scoring engines and real-time computer vision threat detection systems. Built backend architectures for Civic AIShield and personal PII masking tools.",
+    stats: { proficiency: 88, projects: 90, experience: 80 },
   },
 ];
 
