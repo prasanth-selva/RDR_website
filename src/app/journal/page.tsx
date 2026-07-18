@@ -29,6 +29,17 @@ const SOCIAL_LINKS = [
     color: "#cda873",
   },
   {
+    name: "Instagram",
+    handle: "@pr4santh.3x3",
+    href: "https://www.instagram.com/pr4s4nth.3x3/",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path d="M7.5 2A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2zm9 2A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4zm-4.5 2.25a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zm0 2A3.25 3.25 0 1 1 9.75 11.5 3.25 3.25 0 0 1 12 8.25zm5.4-1.15a1.05 1.05 0 1 1-1.05 1.05 1.05 1.05 0 0 1 1.05-1.05z" />
+      </svg>
+    ),
+    color: "#cda873",
+  },
+  {
     name: "Email",
     handle: "prasanthselvaraj1511@gmail.com",
     href: "mailto:prasanthselvaraj1511@gmail.com",
